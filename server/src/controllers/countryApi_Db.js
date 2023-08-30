@@ -14,7 +14,7 @@ const getAllInfo = async () => {
       return {
           id: api.cca3,
           name: api.name.common,
-          flagImage: api.flags[0],
+          flag: api.flags.png,
           continent: api.continents[0],
           capital: api.capital ? api.capital[0]: "capital not found",
           subregion: api.subregion ? "Antartic": api.subregion,
