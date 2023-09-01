@@ -1,44 +1,42 @@
 import PropTypes from "prop-types";
 
 export const cardPropTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    continents: PropTypes.string.isRequired,
-    capital: PropTypes.string.isRequired,
-    subregion: PropTypes.string.isRequired,
-    area: PropTypes.number.isRequired,
-    population: PropTypes.number.isRequired,
-    flags: PropTypes.string.isRequired,
-    onClose: PropTypes.func.isRequired,
-  };
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  continents: PropTypes.string.isRequired,
+  capital: PropTypes.string.isRequired,
+  subregion: PropTypes.string.isRequired,
+  area: PropTypes.number.isRequired,
+  population: PropTypes.number.isRequired,
+  flags: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
 
 export const cardsPropTypes = {
-    countries: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
-            continents: PropTypes.string.isRequired,
-            capital: PropTypes.string.isRequired,
-            subregion: PropTypes.string.isRequired,
-            area: PropTypes.number.isRequired,
-            population: PropTypes.number.isRequired,
-            flags: PropTypes.string.isRequired,
-            onClose: PropTypes.func.isRequired,
-        })
-    ).isRequired,
+  countries: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      continents: PropTypes.string.isRequired,
+      capital: PropTypes.string.isRequired,
+      subregion: PropTypes.string.isRequired,
+      area: PropTypes.number.isRequired,
+      population: PropTypes.number.isRequired,
+      flags: PropTypes.string.isRequired,
+      onClose: PropTypes.func.isRequired,
+    })
+  ).isRequired,
 };
 
 export const searchPropTypes = {
-    onSearch: PropTypes.func.isRequired,
-  };
-
+  onSearch: PropTypes.func.isRequired,
+};
 
 export const activityPostPropTypes = {
   countries: PropTypes.array.isRequired,
   activityPost: PropTypes.func.isRequired,
   getAllCountries: PropTypes.func.isRequired,
 };
-
 
 export const countryDetailPropTypes = {
   match: PropTypes.object.isRequired,
@@ -60,13 +58,12 @@ export const countryDetailPropTypes = {
   }),
   getCountryId: PropTypes.func.isRequired,
 };
- export const homePropTypes = {
-  countries: PropTypes.array.isRequired, 
+export const homePropTypes = {
+  countries: PropTypes.array.isRequired,
   getCountries: PropTypes.func.isRequired,
   getActivities: PropTypes.func.isRequired,
-
- };
- export const searchBarPropTypes = {
+};
+export const searchBarPropTypes = {
   country: PropTypes.string, // Tipo de dato esperado para 'country'
   getCountries: PropTypes.func, // Tipo de dato esperado para 'getCountries'
   cleanCountry: PropTypes.func, // Tipo de dato esperado para 'cleanCountry'
@@ -96,8 +93,8 @@ export const countriesFilterPropTypes = {
   orderCountries2: PropTypes.func.isRequired,
   filterCountries2: PropTypes.func.isRequired,
   activities: PropTypes.array.isRequired,
-  getAllCountries: PropTypes.func.isRequired
-}
+  getAllCountries: PropTypes.func.isRequired,
+};
 
 export const CountryNamePropTypes = {
   name: PropTypes.string.isRequired,
@@ -107,4 +104,10 @@ export const CountryNamePropTypes = {
   continent: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   countryNameButtonClose: PropTypes.bool.isRequired,
+};
+
+export const ActivityNamePropTypes = {
+  name: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
+  difficulty: PropTypes.string.isRequired,
 };

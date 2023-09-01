@@ -1,4 +1,3 @@
-import React from 'react';
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import SearchBarActivity from '../CardsActivities/ActivitySearchBar.jsx'
 import CountriesOrderFilters from '../Filter/CountriesFilter.jsx';
@@ -24,6 +23,6 @@ function Nav() {
 
     </nav>
   );
-};
+}
 
 export default Nav;

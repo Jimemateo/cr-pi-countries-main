@@ -1,8 +1,8 @@
-import React from 'react';
 import styles from './Activity.module.css';
+import {ActivityNamePropTypes} from '../propTypes';
 
 // Declara y exporta el componente 'ActivityName'
-export default function ActivityName({name, duration, dificulty, season, countries, onClose, activityNameButtonClose}) {
+export default function ActivityName({name, duration, difficulty, season, countries, onClose, activityNameButtonClose}) {
     
    return (
      <div >
@@ -16,7 +16,7 @@ export default function ActivityName({name, duration, dificulty, season, countri
                    {/* Muestra la duración de la actividad. */}
                     <p>Duration: {duration}</p>
                      {/* Muestra la dificultad de la actividad. */}
-                    <p>Difficulty: {dificulty}</p>
+                    <p>Difficulty: {difficulty}</p>
                     {/* Muestra la temporada en la que se puede realizar la actividad. */}
                     <p>Season: {season}</p>
                     {/* Muestra los países asociados a la actividad si están disponibles. */}
@@ -29,3 +29,4 @@ export default function ActivityName({name, duration, dificulty, season, countri
         </div>
     )
 }
+ActivityName.propTypes = ActivityNamePropTypes;

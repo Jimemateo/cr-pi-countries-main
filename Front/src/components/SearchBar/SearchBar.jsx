@@ -21,7 +21,7 @@ function SearchBar({ country, getCountries, cleanCountry }) {
     setButtonClicked(true); // Establece que se ha hecho clic en el botón de búsqueda
     setCountryNameButtonClose(true); // Muestra el componente CountryName
   }
-
+// Función para manejar cambios en el campo de entrada.
   function handleChange(event) {
     setFormActualState(event.target.value); // Actualiza el estado con el valor del campo de búsqueda a medida que se escribe
   }

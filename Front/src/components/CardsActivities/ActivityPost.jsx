@@ -163,7 +163,7 @@ También maneja errores si la creación de la actividad falla.
               onChange={handleInputChange}
               name="difficulty"
             >
-              <option value={input.dificulty}>{"Choose Difficulty"}</option>
+              <option value={input.difficulty}>{"Choose Difficulty"}</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

@@ -68,10 +68,10 @@ const postActivity = async (req, res) => {
             attributes: [
               "id",
               "name",
-              "image",
-              "region",
+              "flag",
+              "continent",
+              "capital",
               "subregion",
-              "capitalCity",
               "area",
               "population",
             ],

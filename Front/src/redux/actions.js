@@ -66,8 +66,11 @@ export function getCountryDetail(id) {
 export function getActivities(name = null) {
   return async (dispatch) => {
     try {
-      const endpoint = name ? `${URL}/activity/${name}` : `${URL}/activity`;
-      const { data } = await axios(endpoint);
+      let url = `${URL}/activity`;
+      if (name) {
+        url = `${URL}/activity?name=${name}`;
+      }
+      const { data } = await axios(url);
 
       dispatch({
         type: GET_ACTIVITIES,

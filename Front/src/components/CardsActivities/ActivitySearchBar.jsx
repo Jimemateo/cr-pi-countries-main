@@ -20,19 +20,19 @@ function SearchBarActivity({ activity, getActivities }) {
   function handleButtonClick() {
     if (!formActualState) {
       return alert("That Tourist Activity doesn't exist");
-    } else {
+    } 
       setButtonClicked(true);
       setActivityNameButtonClose(true);
-    }
+    
   }
   // Función para manejar cambios en el campo de entrada.
   function handleChange(event) {
-    setFormActualState(event.target.value);
+    setFormActualState(event.target.value); // Actualiza el estado con el valor del campo de búsqueda a medida que se escribe
   }
 
   // Función para manejar el envío del formulario.
   function handleSubmit(event) {
-    getActivities(formActualState);
+    getActivities(formActualState); // Realiza una búsqueda de actividad por nombre usando la acción getActivities
     event.preventDefault();
     // Realiza la acción 'getActivities' para buscar una actividad por nombre.
     setFormActualState("");
@@ -60,7 +60,7 @@ function SearchBarActivity({ activity, getActivities }) {
           <ActivityName
             name={activity.name}
             duration={activity.duration}
-            dificulty={activity.dificulty}
+            difficulty={activity.difficulty}
             season={activity.season}
             countries={activity.countries}
             onClose={handleActivityNameButtonClose}
