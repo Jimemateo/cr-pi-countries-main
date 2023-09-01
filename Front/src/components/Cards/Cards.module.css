@@ -1,0 +1,89 @@
+:root {
+    --color-primary: #09080b;
+    --color-secondary: #2e2d32;
+    --color-therd: #73655e;
+    --color-light: #c5a38b;
+    --color-dark: #e2dad2;
+  }
+.container{
+    padding: 5%;
+	width: 75%;
+	min-height:400px;
+	margin-left: -80px;
+	display: grid;
+	grid-template-columns: [first] 100px [line2] 100px [line3] 100px[col4-start] 100px [five] 100px[end];
+	grid-template-rows: [row1-start] 25% [row1-end] 75% [third-line] 25% [last-line] 35%;
+	justify-self:center;
+	align-items:center;
+	justify-content:space-around;
+}
+
+.btn{
+    margin-left:60px;
+	margin-top: -45px;
+	width: 50px;
+    height: 45px;
+    background-color:var(--color-secondary);
+    border: 5px;
+	font-size: 30px;
+    float: left;
+    color: var(--color-dark);
+    padding-left: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 250px;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+	align-items:center;
+	cursor: pointer;
+}
+.btn:hover{
+	background-color: var(--color-therd); /* Cambia el color de fondo al pasar el cursor */
+    transform: translateY(-3px); /* Mueve el botón hacia arriba al pasar el cursor */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
+    color: var(--color-primary);
+	
+}
+.btnActivity{
+	margin-left:60px;
+	margin-top: -35px;
+	width: 130px;
+    height: 35px;
+    background-color:var(--color-secondary);
+    border: 5px;
+	font-size: 10pt;
+    float: left;
+    color: var(--color-dark);
+    padding-left: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 15px;
+	cursor: pointer;
+}
+.btnActivity:hover{
+	background-color: var(--color-therd); /* Cambia el color de fondo al pasar el cursor */
+    transform: translateY(-3px); /* Mueve el botón hacia arriba al pasar el cursor */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
+    color: var(--color-primary);
+	
+}
+.searchContainer{
+	margin-top: 20px;
+	height:30px;
+	width:100%;
+	display: flex;
+	align-items:center;
+	justify-content: space-around;
+	flex-direction:row;
+	
+}
+.wrapper{
+	display:flex;
+	align-items:center;
+	justify-content: flex-start; 
+	flex-direction: column;
+	margin-left:-100px;
+	margin-top:15px;
+	
+}

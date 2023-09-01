@@ -1,0 +1,66 @@
+:root {
+  --color-primary: #09080b;
+  --color-secondary: #2e2d32;
+  --color-therd: #73655e;
+  --color-light: #c5a38b;
+  --color-dark: #e2dad2;
+  }
+
+  .navBar{
+    margin-top: -12px;
+    width: 100%;
+	  background-color:var(--color-secondary);  
+    opacity: 0.8; 
+}
+
+.search{
+    margin-left:15px;
+    margin-top: 10px;
+    width: 1320px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+
+.filters{
+    width: 1230px;
+    margin-left:125px;
+    margin-right:10px;
+    display:flex;
+    flex-direction:row;
+    align-items: flex-start;
+   justify-content:space-between;
+}
+
+.backBtn{
+    position: absolute;
+    top: 3;
+    left: 0;
+    margin-right: 125px;
+    margin-left: 15px;
+    margin-top: -15px;
+    margin-bottom: -30px;
+    width: 75px;
+    height: 30px;
+    background-color: var(--color-therd);
+    border: none;
+    font-size: 10pt;
+    color: var(--color-dark);
+    padding-left: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 12px;
+    cursor:pointer;
+    justify-content: center;
+    font-family: 'Promp personalizada';
+
+}
+
+.backBtn:hover{
+  background-color: var(--color-light); /* Cambia el color de fondo al pasar el cursor */
+  transform: translateY(-3px); /* Mueve el botón hacia arriba al pasar el cursor */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
+  color: var(--color-secondary);
+}

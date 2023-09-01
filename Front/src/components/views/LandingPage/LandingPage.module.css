@@ -1,0 +1,88 @@
+@font-face {
+    font-family:'Promp personalizada';
+    src: url('../../../../../../Fuentes/Phudu/Phudu-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family:'Dosis';
+    src: url('../../../../../../Fuentes/Dosis/Dosis-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family:'Conforta';
+    src: url('../../../../../../Fuentes/Comfortaa/Comfortaa-VariableFont_wght.ttf');
+}
+
+/* Define la animación de pulso */
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05); /* Escala el botón un poco más grande */
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+:root {
+    --color-primary: #09080b;
+    --color-secondary: #2e2d32;
+    --color-therd: #73655e;
+    --color-light: #c5a38b;
+    --color-dark: #e2dad2;
+  }
+  
+
+  .landingpage{
+    background:url('../../../img/tierra.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items:space-around;
+ 
+}
+
+.h2button{
+    color: var(--color-secondary);
+    background-color: var(--color-therd);
+    padding: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    font-family:'Promp personalizada';
+    margin-top: 50px;
+    margin-right: -800px;
+    justify-content: center;
+    font-size: 19px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5) ;
+    border-radius: 12px;
+    animation: pulse 2s infinite;
+    opacity: 0.9;
+    width: 155px;
+    height: 35px;
+    
+}
+
+.h2button:hover {
+    background-color: var(--color-light); /* Cambia el color de fondo al pasar el cursor */
+    transform: translateY(-3px); /* Mueve el botón hacia arriba al pasar el cursor */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
+    opacity: 0.9;
+}
+
+
+.parrafo{
+    color: var(--color-dark);
+    font-family:'Promp personalizada';
+    text-shadow: #09080b;
+    font-size: 75px;
+    justify-content:center;
+    margin-top: 270px;
+    font-weight: bold;
+    -webkit-text-stroke: 2px var(--color-dark); /* Ancho y color del borde */
+      
+}
