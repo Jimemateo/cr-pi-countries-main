@@ -4,22 +4,29 @@ const { Op } = require("sequelize");
 
 // Controlador para obtener todas las actividades turísticas
 
-const getActivity = async (req, res) => {
-  const { name } = req.query;
+const getActivities = async (req, res) => {
+  const responseBd = await getAllInfo(); //para que se llene la bd en caso de estar vacía
+  try {
+    const { name } = req.query;
+    const conditions = {
+      ...(name ? { name: { [Op.iLike]: `%${name}%` } } : {}),
+    };
 
-  const response = await getAllInfo(); //para que se llene la bd en caso de estar vacía
-
-  if (name) {
-    const selectActivity = await Activity.findAll({
-      where: { name: { [Op.iLike]: `%${name}%` } },
-      include: Country,
+    const response = await Activity.findAll({
+      where: conditions,
+      include: {
+        model: Country,
+        attributes: ["name"],
+      },
     });
 
-    res.status(200).send(selectActivity);
-  } else {
-    const allActivities = await Activity.findAll({ include: Country });
+    if (response.length === 0) {
+      return res.status(404).send({ msg: "Not Found" });
+    }
 
-    res.status(200).send(allActivities);
+    return res.status(200).send(response);
+  } catch (error) {
+    res.status(500).send({ msg: "Error trying to get Activities" });
   }
 };
 
@@ -33,9 +40,13 @@ const postActivity = async (req, res) => {
       const countriesArr = [];
       for (const index in countries) {
         const countryCodeUpper = countries[index].toUpperCase();
-        let country = await Country.findOne({ where: { id: countryCodeUpper } });
+        let country = await Country.findOne({
+          where: { id: countryCodeUpper },
+        });
         if (!country) {
-          res.status(400).send({ message: `Country ${countryCodeUpper} invalid` });
+          res
+            .status(400)
+            .send({ message: `Country ${countryCodeUpper} invalid` });
           return;
         }
         countriesArr.push(country);
@@ -49,10 +60,28 @@ const postActivity = async (req, res) => {
       });
 
       await activity.addCountries(countriesArr); // para relacionar la actividad con el country en la tabla intermedia
-
-      res
-        .status(200)
-        .send({ message: "The activity was created successfully" });
+      const logActivity = await Activity.findOne({
+        where: { id: activity.id },
+        include: [
+          {
+            model: Country,
+            attributes: [
+              "id",
+              "name",
+              "image",
+              "region",
+              "subregion",
+              "capitalCity",
+              "area",
+              "population",
+            ],
+            through: {
+              attributes: [],
+            },
+          },
+        ],
+      });
+      res.status(200).json(logActivity);
     } else {
       res.status(400).send("Missing information, can't add activity");
     }
@@ -76,7 +105,7 @@ const deleteActivity = async (req, res) => {
 };
 
 module.exports = {
-  getActivity,
+  getActivities,
   postActivity,
   deleteActivity,
 };

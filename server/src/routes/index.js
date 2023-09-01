@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {getActivity, postActivity, deleteActivity} = require ('../controllers/get_post_deleteActivities');
+const {getActivities, postActivity, deleteActivity} = require ('../controllers/get_post_deleteActivities');
 const {getCountry} = require ('../controllers/getCountry');
 const {getCountryById} = require ('../controllers/getCountryById');
 
@@ -17,7 +17,7 @@ router.get('/countries', getCountry)
 
 router.post('/activity', postActivity)
 
-router.get('/activity', getActivity)
+router.get('/activity', getActivities)
 
 router.delete('/activity', deleteActivity)
 
