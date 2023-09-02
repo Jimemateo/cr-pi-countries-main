@@ -1,6 +1,6 @@
 @font-face {
     font-family:'Promp personalizada';
-    src: url('../../../../../Fuentes/Phudu/Phudu-VariableFont_wght.ttf');
+    src: url('../../Fuentes/Phudu/Phudu-VariableFont_wght.ttf');
   }
 :root {
     --color-primary: #09080b;

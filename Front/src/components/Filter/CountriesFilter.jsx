@@ -4,7 +4,6 @@ import {
   getCountries,
   filterCountries,
 } from "../../redux/actions.js";
-import { filterContinentActivity } from "../../utils/validations";
 import { connect } from "react-redux";
 import { countriesFilterPropTypes } from "../propTypes.js";
 
@@ -60,13 +59,9 @@ function CountriesOrderFilters({
     if (event.target.value === "activityFilter") {
       return getAllCountries();
     }
-    const filteredCountries = await filterContinentActivity(countriesOrder || [], {
-        activities: event.target.value,
-      });
-    
-      // Filtrar países por actividad turística
-      filterCountries2(filteredCountries);
-      console.log(filteredCountries);
+
+    filterCountries2(countriesOrder, {activities: event.target.value})
+
     }
 
   return (

@@ -48,10 +48,13 @@ export async function countriesOrder(orderTarget, criteria) {
 }
 // Esta función filtra países según los criterios seleccionados.
 export async function filterContinentActivity(orderTarget, criteria) {
-  let filteredCountries;
+  // if (!Array.isArray(orderTarget) || orderTarget.length === 0) {
+  //   return [];
+  // }
+  let filteredCountries= [...orderTarget];
 if (criteria.continent){
-  filteredCountries = orderTarget.filter((countries) => 
-    countries.continent.includes(criteria.continent)
+  filteredCountries = orderTarget.filter((country) => 
+    country.continent.includes(criteria.continent)
   )
 }  
   if (criteria.activities){

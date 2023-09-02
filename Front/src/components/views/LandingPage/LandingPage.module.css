@@ -1,15 +1,8 @@
 @font-face {
     font-family:'Promp personalizada';
-    src: url('../../../../../../Fuentes/Phudu/Phudu-VariableFont_wght.ttf');
+    src: url('../../../Fuentes/Phudu/Phudu-VariableFont_wght.ttf');
 }
-@font-face {
-    font-family:'Dosis';
-    src: url('../../../../../../Fuentes/Dosis/Dosis-VariableFont_wght.ttf');
-}
-@font-face {
-    font-family:'Conforta';
-    src: url('../../../../../../Fuentes/Comfortaa/Comfortaa-VariableFont_wght.ttf');
-}
+
 
 /* Define la animación de pulso */
 @keyframes pulse {
