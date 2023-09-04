@@ -2,26 +2,21 @@ import { useState } from "react";
 import { getCountries, cleanCountry } from "../../redux/actions.js"; // Importa las acciones getCountries y cleanCountry desde el archivo de acciones
 import { connect } from "react-redux";
 import styles from "./SearchBar.module.css";
-import CountryName from "../Name/CountryName.jsx";
+// import CountryName from "../Name/CountryName.jsx";
 import { searchBarPropTypes } from "../propTypes";
 
-function SearchBar({ country, getCountries, cleanCountry }) {
+function SearchBar({ getCountries, cleanCountry }) {
   const [formActualState, setFormActualState] = useState(""); // Define un estado para el valor del formulario de búsqueda
-  const [buttonClicked, setButtonClicked] = useState(false); // Define un estado para controlar si se hizo clic en el botón de búsqueda
-  const [countryNameButtonClose, setCountryNameButtonClose] = useState(true); // Define un estado para controlar si mostrar el componente CountryName
-
-  function handleCountryNameButtonClose() {
-    setCountryNameButtonClose(false); // Función para cerrar el componente CountryName
-  }
+  const [hasSearched, setHasSearched] = useState(false); // Nuevo estado
 
   function handleButtonClick() {
     if (!formActualState) {
       return alert("You must enter the name of a country"); // Comprueba si se ha ingresado un nombre de país antes de realizar la búsqueda
     }
-    setButtonClicked(true); // Establece que se ha hecho clic en el botón de búsqueda
-    setCountryNameButtonClose(true); // Muestra el componente CountryName
+    setHasSearched(true); // Indicar que se ha realizado una búsqueda
   }
-// Función para manejar cambios en el campo de entrada.
+
+  // Función para manejar cambios en el campo de entrada.
   function handleChange(event) {
     setFormActualState(event.target.value); // Actualiza el estado con el valor del campo de búsqueda a medida que se escribe
   }
@@ -31,6 +26,12 @@ function SearchBar({ country, getCountries, cleanCountry }) {
     event.preventDefault(); // Evita el comportamiento predeterminado del formulario
     setFormActualState(""); // Restablece el valor del campo de búsqueda
     cleanCountry(); // Limpia el país en el estado Redux
+  }
+
+  function handleReset() {
+    setHasSearched(false); // Volver al estado inicial
+    cleanCountry(); // Limpia el país en el estado Redux
+    getCountries();
   }
 
   return (
@@ -50,27 +51,19 @@ function SearchBar({ country, getCountries, cleanCountry }) {
         >
           🔍
         </button>
-        {buttonClicked && country.name ? (
-          <CountryName
-            name={country.name}
-            id={country.id}
-            flag={country.flag}
-            population={country.population}
-            continent={country.continent}
-            onClose={handleCountryNameButtonClose}
-            countryNameButtonClose={countryNameButtonClose}
-          />
-        ) : null}
       </form>
+      {/* Mostrar el botón de reset si se ha realizado una búsqueda */}
+      {hasSearched && (
+        <button className={styles.resetBtn} onClick={handleReset}>
+          Show All Cards
+        </button>
+      )}
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    // Mapea el estado del país desde Redux a las props
-    country: state.country,
-  };
+const mapStateToProps = () => {
+  return {};
 };
 const mapDispatchToProps = (dispatch) => {
   return {

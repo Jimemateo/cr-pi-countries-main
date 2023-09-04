@@ -20,6 +20,7 @@ const getCountry = async (req, res) => {
 
     if (response.length === 0) {
       res.status(404).send({ msg: "Not Found" });
+      return
     }
 
     return res.status(200).send(response);

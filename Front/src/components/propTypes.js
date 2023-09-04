@@ -3,13 +3,9 @@ import PropTypes from "prop-types";
 export const cardPropTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  continents: PropTypes.string.isRequired,
-  capital: PropTypes.string.isRequired,
-  subregion: PropTypes.string.isRequired,
-  area: PropTypes.number.isRequired,
+  continent: PropTypes.string.isRequired,
   population: PropTypes.number.isRequired,
-  flags: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
+  flag: PropTypes.string.isRequired,
 };
 
 export const cardsPropTypes = {
@@ -17,13 +13,11 @@ export const cardsPropTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      continents: PropTypes.string.isRequired,
+      continent: PropTypes.string.isRequired,
       capital: PropTypes.string.isRequired,
-      subregion: PropTypes.string.isRequired,
       area: PropTypes.number.isRequired,
       population: PropTypes.number.isRequired,
-      flags: PropTypes.string.isRequired,
-      onClose: PropTypes.func.isRequired,
+      flag: PropTypes.string.isRequired,
     })
   ).isRequired,
 };
@@ -64,7 +58,6 @@ export const homePropTypes = {
   getActivities: PropTypes.func.isRequired,
 };
 export const searchBarPropTypes = {
-  country: PropTypes.string, // Tipo de dato esperado para 'country'
   getCountries: PropTypes.func, // Tipo de dato esperado para 'getCountries'
   cleanCountry: PropTypes.func, // Tipo de dato esperado para 'cleanCountry'
 };
@@ -81,7 +74,6 @@ export const activityPropTypes = {
   activity: PropTypes.shape({
     name: PropTypes.string.isRequired, // Tipo de dato esperado para 'name' y requerido
     duration: PropTypes.number.isRequired, // Tipo de dato esperado para 'duration' y requerido
-    difficulty: PropTypes.string.isRequired, // Tipo de dato esperado para 'difficulty' y requerido
     season: PropTypes.string.isRequired, // Tipo de dato esperado para 'season' y requerido
     countries: PropTypes.arrayOf(PropTypes.string).isRequired, // Tipo de dato esperado para 'countries' como un array de strings y requerido
   }),
@@ -109,5 +101,4 @@ export const CountryNamePropTypes = {
 export const ActivityNamePropTypes = {
   name: PropTypes.string.isRequired,
   duration: PropTypes.number.isRequired,
-  difficulty: PropTypes.string.isRequired,
 };

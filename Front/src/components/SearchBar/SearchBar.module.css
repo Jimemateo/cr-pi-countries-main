@@ -1,6 +1,6 @@
 @font-face {
-  font-family:'Promp personalizada';
-  src: url('../../Fuentes/Phudu/Phudu-VariableFont_wght.ttf');
+  font-family: "Promp personalizada";
+  src: url("../../Fuentes/Phudu/Phudu-VariableFont_wght.ttf");
 }
 
 :root {
@@ -9,18 +9,16 @@
   --color-therd: #73655e;
   --color-light: #c5a38b;
   --color-dark: #e2dad2;
-
 }
 
-
-.searchcountry searchCountry{
+.searchcountry searchCountry {
   appearance: none;
--webkit-appearance: none;
--moz-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-.searchCountry{
-  margin-top:9px;
+.searchCountry {
+  margin-top: 9px;
   width: 395px;
   height: 30px;
   background: var(--color-secondary);
@@ -32,28 +30,64 @@
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 12px;
-  font-family: 'Promp personalizada';
+  font-family: "Promp personalizada";
   justify-content: center;
   margin-bottom: 13px;
 }
 
-.btn{
+.btn {
   margin-top: 0px;
   width: 130px;
   height: 45px;
   margin-bottom: 2px;
-  background-color:transparent;
+  background-color: transparent;
   border: none;
   font-size: 20px;
   padding-left: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 15px;
-  cursor:pointer;
+  cursor: pointer;
   margin-left: -45px;
 }
 
-.btn:hover{
-    transform: translateY(-3px); /* Mueve el botón hacia arriba al pasar el cursor */
-   
+.btn:hover {
+  transform: translateY(
+    -3px
+  ); /* Mueve el botón hacia arriba al pasar el cursor */
+}
+
+.resetBtn {
+  position: absolute;
+  top: 1;
+  left: 70;
+  margin-right: 125px;
+  margin-left: 60px;
+  margin-top: 15px;
+  margin-bottom: -50px;
+  width: 105px;
+  height: 35px;
+  background-color: var(--color-secondary);
+  border: 5px;
+  font-size: 10pt;
+  color: var(--color-dark);
+  padding-left: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 15px;
+  cursor: pointer;
+  justify-content: center;
+  font-family: "Promp personalizada";
+  float: left;
+}
+
+.resetBtn:hover {
+  background-color: var(
+    --color-therd
+  ); /* Cambia el color de fondo al pasar el cursor */
+  transform: translateY(
+    -3px
+  ); /* Mueve el botón hacia arriba al pasar el cursor */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
+  color: var(--color-primary);
 }

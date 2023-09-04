@@ -39,7 +39,7 @@ function SearchBarActivity({ activity, getActivities }) {
   }
 
   return (
-    <div>
+    <div >
       <form onSubmit={handleSubmit}>
         <input
           className={styles.searchActivity}
@@ -55,18 +55,20 @@ function SearchBarActivity({ activity, getActivities }) {
         >
           Look for an Activity!
         </button>
+        
         {/* Muestra el componente 'ActivityName' si se ha hecho clic en el botón y se encontró una actividad */}
         {buttonClicked && activity.name ? (
-          <ActivityName
+          <ActivityName 
             name={activity.name}
             duration={activity.duration}
             difficulty={activity.difficulty}
             season={activity.season}
-            countries={activity.countries}
+            countries={activity.Countries}
             onClose={handleActivityNameButtonClose}
             activityNameButtonClose={activityNameButtonClose}
           />
         ) : null}
+        
       </form>
     </div>
   );
@@ -75,7 +77,7 @@ function SearchBarActivity({ activity, getActivities }) {
 // Función que mapea el estado de Redux a las props del componente.
 const mapStateToProps = (state) => {
   return {
-    activity: state.activity,
+    activity: state.activities[0],
   };
 };
 

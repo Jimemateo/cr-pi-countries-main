@@ -6,16 +6,17 @@
     --color-dark: #e2dad2;
   }
 .container{
-    padding: 5%;
-	width: 75%;
+    padding: 6%;
+	width: 95%;
 	min-height:400px;
-	margin-left: 0px;
+	margin-left: -88px;
 	display: grid;
 	grid-template-columns: [first] 100px [line2] 100px [line3] 100px[col4-start] 100px [five] 100px[end];
 	grid-template-rows: [row1-start] 25% [row1-end] 75% [third-line] 25% [last-line] 35%;
 	justify-self:center;
 	align-items:center;
 	justify-content:space-around;
+	
 }
 
 .btn{
@@ -48,7 +49,7 @@
 .btnActivity{
 	margin-left:60px;
 	margin-top: -35px;
-	width: 130px;
+	width: 150px;
     height: 35px;
     background-color:var(--color-secondary);
     border: 5px;
@@ -60,6 +61,7 @@
     -moz-border-radius: 5px;
     border-radius: 15px;
 	cursor: pointer;
+	font-family: 'Promp personalizada';
 }
 .btnActivity:hover{
 	background-color: var(--color-therd); /* Cambia el color de fondo al pasar el cursor */
