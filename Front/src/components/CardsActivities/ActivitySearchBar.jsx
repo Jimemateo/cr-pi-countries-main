@@ -1,15 +1,19 @@
 import { useState } from "react";
-import { getActivities } from "../../redux/actions.js";
+import { getActivities, cleanActivity } from "../../redux/actions.js";
 import { connect } from "react-redux";
 import styles from "./Activity.module.css";
 import ActivityName from "./ActivityName.jsx";
 import { activityPropTypes } from "../propTypes";
 
-function SearchBarActivity({ activity, getActivities }) {
+
+function SearchBarActivity({ activity, getActivities, cleanActivity }) {
   // Define estados iniciales para el formulario y el estado del botón.
   const [formActualState, setFormActualState] = useState("");
   const [buttonClicked, setButtonClicked] = useState(false);
   const [activityNameButtonClose, setActivityNameButtonClose] = useState(true);
+  const [hasSearchedAct, setHasSearchedAct] = useState(false); // Nuevo estado
+
+
 
   // Función para cerrar el componente 'ActivityName'.
   function handleActivityNameButtonClose() {
@@ -19,10 +23,12 @@ function SearchBarActivity({ activity, getActivities }) {
   // Función para manejar el clic en el botón de búsqueda.
   function handleButtonClick() {
     if (!formActualState) {
-      return alert("That Tourist Activity doesn't exist");
+      return alert("You must enter an activity name");
     } 
       setButtonClicked(true);
       setActivityNameButtonClose(true);
+      setHasSearchedAct(true); // Indicar que se ha realizado una búsqueda
+
     
   }
   // Función para manejar cambios en el campo de entrada.
@@ -36,6 +42,14 @@ function SearchBarActivity({ activity, getActivities }) {
     event.preventDefault();
     // Realiza la acción 'getActivities' para buscar una actividad por nombre.
     setFormActualState("");
+    cleanActivity(); //Limpia la actividad en el estado Redux
+  }
+
+  function handleReset(){
+    setButtonClicked(false);
+    setHasSearchedAct(false);
+    cleanActivity();
+    getActivities();
   }
 
   return (
@@ -70,6 +84,12 @@ function SearchBarActivity({ activity, getActivities }) {
         ) : null}
         
       </form>
+      {/* Mostrar el botón de reset si se ha realizado una búsqueda */}
+      {hasSearchedAct && (
+        <button className={styles.resetBtn} onClick={handleReset}>
+          Show All Activities
+        </button>
+      )}
     </div>
   );
 }
@@ -87,6 +107,7 @@ const mapDispatchToProps = (dispatch) => {
     getActivities: (name) => {
       dispatch(getActivities(name));
     },
+    cleanActivity: () => dispatch(cleanActivity()),
   };
 };
 

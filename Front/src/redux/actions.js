@@ -8,6 +8,7 @@ import {
   POST_ACTIVITY,
   FILTER_COUNTRIES,
   CLEAN_COUNTRY,
+  CLEAN_ACTIVITY,
 } from "./actions.types.js";
 // Importa funciones de validación personalizadas
 import {
@@ -76,7 +77,7 @@ export function getActivities(name = null) {
         payload: data,
       });
     } catch (error) {
-      window.alert(error.message);
+      window.alert(error.message="That activity does not exist. Maybe you can create a new one!");
     }
   };
 }
@@ -92,6 +93,15 @@ export function postActivity(activity) {
     } catch (error) {
       console.log(error.message);
     }
+  };
+}
+// Acción para limpiar los datos de un país
+export function cleanActivity() {
+  return function (dispatch) {
+    dispatch({
+      type: CLEAN_ACTIVITY, // Tipo de acción para limpiar la actividad
+      payload: "",
+    });
   };
 }
 

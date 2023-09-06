@@ -6,24 +6,23 @@ const getAllInfo = async () => {
   try {
     const dataInDB = await Country.count(); // para ver si está cargada la base de datos, si está vacía se consume la API y completa el modelo.
 
-    if ( !dataInDB) {
+    if (!dataInDB) {
       const apiResponse = await axios.get("http://localhost:5000/countries");
-      
+
       const allApiCountries = apiResponse.data.map((api) => {
-        
-      return {
+        return {
           id: api.cca3,
           name: api.name.common,
           flag: api.flags.png,
           continent: api.continents[0],
-          capital: api.capital ? api.capital[0]: "capital not found",
-          subregion: api.subregion ? "Antartic": api.subregion,
+          capital: api.capital ? api.capital[0] : "capital not found",
+          subregion: api.subregion ? "Antartic" : api.subregion,
           area: api.area,
           population: api.population,
         };
       });
-      
-     for (const countryData of allApiCountries) {
+
+      for (const countryData of allApiCountries) {
         try {
           await Country.create(countryData);
           console.log("Created:", countryData.name); // Log successful creation
@@ -39,8 +38,6 @@ const getAllInfo = async () => {
     return err;
   }
 };
-
-
 
 module.exports = {
   getAllInfo,

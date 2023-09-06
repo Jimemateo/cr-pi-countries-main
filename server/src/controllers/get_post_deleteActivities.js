@@ -21,7 +21,7 @@ const getActivities = async (req, res) => {
     });
 
     if (response.length === 0) {
-      return res.status(404).send({ msg: "Not Found" });
+      return res.status(404).send({ msg: "That Activity does not exist. Maybe you can create a new one!" });
     }
 
     return res.status(200).send(response);

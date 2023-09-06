@@ -2,7 +2,6 @@ const { Country, Activity } = require("../db");
 const { Router } = require("express");
 const { Op } = require("sequelize");
 
-
 const getCountry = async (req, res) => {
   try {
     const { name } = req.query;
@@ -20,7 +19,7 @@ const getCountry = async (req, res) => {
 
     if (response.length === 0) {
       res.status(404).send({ msg: "Not Found" });
-      return
+      return;
     }
 
     return res.status(200).send(response);
