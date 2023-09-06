@@ -17,7 +17,7 @@ function Nav() {
         <SearchBarActivity />{" "}
         {/* Renderiza el componente SearchBarActivity para buscar actividades turísticas */}
         <Link to="/">
-          <button className={styles.backBtn}>Back</button>
+          <button className={styles.backBtn}>Go Back</button>
         </Link>
       </div>
     </nav>

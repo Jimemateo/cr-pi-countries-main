@@ -51,20 +51,22 @@ export async function filterContinentActivity(orderTarget, criteria) {
   // if (!Array.isArray(orderTarget) || orderTarget.length === 0) {
   //   return [];
   // }
-  let filteredCountries= [...orderTarget];
-if (criteria.continent){
-  filteredCountries = orderTarget.filter((country) => 
-    country.continent.includes(criteria.continent)
-  )
-}  
-  if (criteria.activities){
-    filteredCountries = orderTarget.filter((countries) =>
-    countries.activities.filter((activity) => activity.name === criteria.activities).length > 0)
-    }
-    
+  let filteredCountries = [...orderTarget];
+  if (criteria.continent) {
+    filteredCountries = orderTarget.filter((country) =>
+      country.continent.includes(criteria.continent)
+    );
+  }
+  if (criteria.activities) {
+    filteredCountries = orderTarget.filter(
+      (countries) =>
+        countries.activities.filter(
+          (activity) => activity.name === criteria.activities
+        ).length > 0
+    );
+  }
 
-
-return filteredCountries;
+  return filteredCountries;
 
   // let filteredCountries = [];
 

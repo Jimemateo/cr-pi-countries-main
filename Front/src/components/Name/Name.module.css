@@ -1,54 +1,53 @@
 @font-face {
-    font-family:'Promp personalizada';
-    src: url('../../Fuentes/Phudu/Phudu-VariableFont_wght.ttf');
-  }
+  font-family: "Promp personalizada";
+  src: url("../../Fuentes/Phudu/Phudu-VariableFont_wght.ttf");
+}
 :root {
-    --color-primary: #09080b;
-    --color-secondary: #2e2d32;
-    --color-therd: #73655e;
-    --color-light: #c5a38b;
-    --color-dark: #e2dad2;
-  }
+  --color-primary: #05090a;
+  --color-secondary: #1f4b56;
+  --color-therd: #62584c;
+  --color-light: #c5a58a;
+  --color-dark: #33a9bf;
+}
 
-.countryName{
-	margin-top: 0px;
-    margin: 85px auto; 
-    margin-left:515px;
-	width: 25%;
-	height: 400px;
-	border-radius: 10px;
-    box-shadow: 5px 5px 3px 7px rgba(0,0,0,0.25), 5px 5px 3px 7px rgba(0,0,0,0.22);
-	transition: 0.8s;
-	background-color: var(--color-therd);
-	color:var(--color-dark);
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	flex-direction:column;
-	position:fixed;
-	font-family: 'Promp personalizada';
-	font-size: 20px;
+.countryName {
+  margin-top: 0px;
+  margin: 85px auto;
+  margin-left: 515px;
+  width: 25%;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 3px 7px rgba(0, 0, 0, 0.25),
+    5px 5px 3px 7px rgba(0, 0, 0, 0.22);
+  transition: 0.8s;
+  background-color: var(--color-therd);
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  position: fixed;
+  font-family: "Promp personalizada";
+  font-size: 20px;
 }
 
 .countryNameimg {
-	width: 180px;
-	height:150px;
-	border-radius: 12%;
-	
+  width: 180px;
+  height: 150px;
+  border-radius: 12%;
 }
 
-.container{
-	
-    padding: 0.9rem 0.4rem 0.4rem ;
-	width: 80%;
-	display: flex;
-	flex-flow:row;
-	justify-self:flex-end;
-	align-items:flex-end;
-	justify-content:space-around;
+.container {
+  padding: 0.9rem 0.4rem 0.4rem;
+  width: 80%;
+  display: flex;
+  flex-flow: row;
+  justify-self: flex-end;
+  align-items: flex-end;
+  justify-content: space-around;
 }
 
-.closeBtn{
-	border-radius:10px;
-	cursor: pointer;
+.closeBtn {
+  border-radius: 10px;
+  cursor: pointer;
 }

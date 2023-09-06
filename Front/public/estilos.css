@@ -11,11 +11,9 @@
   --color-therd: #73655e;
   --color-light: #c5a38b;
   --color-dark: #e2dad2;
-  --sombra-dark: 10px 10px 20px rgba(170,170,170,.16);
-  --sombra-light: 10px 10px 20px rgba(0,0,0,.16);
+  --sombra-dark: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  --sombra-light: 10px 10px 20px rgba(0, 0, 0, 0.16);
 }
-
-
 
 body {
   display: flex;
@@ -23,16 +21,13 @@ body {
   justify-content: space-between;
   overflow: scroll;
   white-space: nowrap;
-  background-color: #F1F1F1;
-
+  background-color: #f1f1f1;
 }
 .in-flex {
   flex-basis: 100%;
   height: 100px;
   margin-bottom: 0rem;
 }
-
-
 
 @media (min-width: 600px) {
   body {

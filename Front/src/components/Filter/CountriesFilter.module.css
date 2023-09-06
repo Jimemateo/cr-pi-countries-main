@@ -1,55 +1,58 @@
 @font-face {
-    font-family:'Promp personalizada';
-    src: url('../../Fuentes/Phudu/Phudu-VariableFont_wght.ttf');
+  font-family: "Promp personalizada";
+  src: url("../../Fuentes/Phudu/Phudu-VariableFont_wght.ttf");
 }
 :root {
-    --color-primary: #09080b;
-    --color-secondary: #2e2d32;
-    --color-therd: #73655e;
-    --color-light: #c5a38b;
-    --color-dark: #e2dad2;
-  }
-
-.filters{
-    display:flex;
-    flex-direction:row;
-    width:1500px;
-    justify-content:center;
-    margin-left:10px;
-    margin-top: 3px;
-    
-}
-.select{
-    appearance: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-    display: inline-block;
-	width: 90%;
-	cursor: pointer;
-  	padding: 7px 50px;
-  	height: 32px;
-  	outline: 0; 
-  	border: 20%;
-	background: var(--color-secondary);
-	color: var(--color-dark);
-	font-size: 13px;
-	color: var(--color-light);
-	font-family:'Promp personalizada';
-	border:1px solid var(--color-dark);
-    border-radius: 12px;
-    position: relative;
-    transition: all 0.25s ease;
-    margin-right: 27px;
-    margin-top: 15px;
+  --color-primary: #05090a;
+  --color-secondary: #1f4b56;
+  --color-therd: #62584c;
+  --color-light: #c5a58a;
+  --color-dark: #33a9bf;
+  --color-blue: rgba(28, 29, 49, 0.774);
+  --color-white: rgba(232, 219, 191, 0.813);
 }
 
-.select select::-ms-expand{
-    display:none;
+.filters {
+  display: flex;
+  flex-direction: row;
+  width: 1500px;
+  justify-content: center;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  width: 90%;
+  cursor: pointer;
+  padding: 7px 50px;
+  height: 32px;
+  outline: 0;
+  border: 20%;
+  background: var(--color-secondary);
+  font-size: 13px;
+  color: white;
+  font-family: "Promp personalizada";
+  border: 1px solid var(--color-dark);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.25s ease;
+  margin-right: 27px;
+  margin-top: 15px;
+}
+
+.select select::-ms-expand {
+  display: none;
 }
 
 .select:hover {
-    background-color: var(--color-light); /* Cambia el color de fondo al pasar el cursor */
-    transform: translateY(-3px); /* Mueve el botón hacia arriba al pasar el cursor */
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
-    color: var(--color-secondary);
+  transform: translateY(
+    -3px
+  ); /* Mueve el botón hacia arriba al pasar el cursor */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5); /* Cambia la sombra al pasar el cursor */
+  color: var(--color-dark);
+  opacity: 1;
+  border: solid 1.5px var(--color-dark);
 }

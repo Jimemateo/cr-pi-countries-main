@@ -33,7 +33,6 @@ export function getCountries(name = null) {
       });
     } catch (error) {
       window.alert(error.message);
-      console.log(error.message);
     }
   };
 }

@@ -1,15 +1,22 @@
 :root {
-  --color-primary: #09080b;
-  --color-secondary: #2e2d32;
-  --color-therd: #73655e;
-  --color-light: #c5a38b;
-  --color-dark: #e2dad2;
+  --color-primary: #05090a;
+  --color-secondary: #1f4b56;
+  --color-therd: #62584c;
+  --color-light: #c5a58a;
+  --color-dark: #33a9bf;
+  --color-blue: rgba(28, 29, 49, 0.774);
+
 }
 
 .navBar {
   margin-top: -12px;
   width: 100%;
   background-color: var(--color-secondary);
+  opacity: 0.7;
+  box-shadow: 0px 0px 10px rgba(46, 146, 212, 0.3),
+
+}
+.navBar:hover {
   opacity: 0.8;
 }
 
@@ -36,18 +43,17 @@
 
 .backBtn {
   position: absolute;
-  top: 3;
   left: 0;
-  margin-right: 125px;
-  margin-left: 15px;
-  margin-top: -15px;
+  margin-right: 25px;
+  margin-left: 135px;
+  margin-top: -18px;
   margin-bottom: -30px;
   width: 75px;
-  height: 30px;
-  background-color: var(--color-therd);
-  border: none;
+  height: 32px;
+  background-color: var(--color-secondary);
+  border: solid 1.5px var(--color-dark);
   font-size: 10pt;
-  color: var(--color-dark);
+  color: white;
   padding-left: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -55,15 +61,17 @@
   cursor: pointer;
   justify-content: center;
   font-family: "Promp personalizada";
+  animation: pulse 2s infinite;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 
 .backBtn:hover {
   background-color: var(
-    --color-light
+    --color-secondary
   ); /* Cambia el color de fondo al pasar el cursor */
   transform: translateY(
     -3px
   ); /* Mueve el botón hacia arriba al pasar el cursor */
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
-  color: var(--color-secondary);
+  color: white;
 }

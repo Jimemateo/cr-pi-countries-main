@@ -1,31 +1,28 @@
 :root {
-  --color-primary: #09080b;
-  --color-secondary: #2e2d32;
-  --color-therd: #73655e;
-  --color-light: #c5a38b;
-  --color-dark: #e2dad2;
-  }
-
-  .container {
-    position: relative; /* Añade posición relativa al contenedor para posicionar el pseudo-elemento */
-    max-width: 120vw;
-    min-height: 50vh;
-  }
-  
-  .container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0.8;
-    background-image: url('../../../img/countries copy.png'); /* Establece la imagen de fondo en el pseudo-elemento */
-    background-color: rgba(107, 108, 87, 0.6); /* Ajusta el último valor para controlar la opacidad */
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
-  }
+  --color-primary: #05090a;
+  --color-secondary: #1f4b56;
+  --color-therd: #62584c;
+  --color-light: #c5a58a;
+  --color-dark: #33a9bf;
+}
 
 
+.container {
+  position: relative; /* Añade posición relativa al contenedor para posicionar el pseudo-elemento */
+  max-width: 120vw;
+  min-height: 50vh;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("../../../img/descarga\ \(1\).jpeg"); /* Establece la imagen de fondo en el pseudo-elemento */
+  background-color: rgb(7, 7, 0); /* Ajusta el último valor para controlar la opacidad */
+  background-size:auto;
+  background-repeat: no-repeat;
+  z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
+}

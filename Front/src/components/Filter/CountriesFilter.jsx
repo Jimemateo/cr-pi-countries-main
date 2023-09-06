@@ -17,8 +17,6 @@ function CountriesOrderFilters({
 }) {
   // Funciones manejadoras para ordenar y filtrar países
   function handleName(event) {
-    console.log("Event value:", event.target.value);
-    console.log("Countries Order", countriesOrder);
     // Si se selecciona 'Name', cargar todos los países
     if (event.target.value === "Name") {
       return getAllCountries();
@@ -60,9 +58,8 @@ function CountriesOrderFilters({
       return getAllCountries();
     }
 
-    filterCountries2(countriesOrder, {activities: event.target.value})
-
-    }
+    filterCountries2(countriesOrder, { activities: event.target.value });
+  }
 
   return (
     <div className={styles.filters}>

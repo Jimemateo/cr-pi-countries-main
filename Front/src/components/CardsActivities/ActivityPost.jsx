@@ -100,7 +100,6 @@ También maneja errores si la creación de la actividad falla.
     event.preventDefault();
     // Realiza la acción de 'postActivity' para crear una actividad
     activityPost(input);
-    console.log(input);
   }
   // Manejador para mostrar un mensaje de éxito o error al hacer clic en el botón de envío.
   function onCLickSubmit() {
@@ -230,7 +229,6 @@ También maneja errores si la creación de la actividad falla.
 
 // Función que mapea el estado de Redux a las props del componente.
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     countries: state.countries,
   };

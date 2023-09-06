@@ -3,20 +3,21 @@
   src: url("../../Fuentes//Phudu/Phudu-VariableFont_wght.ttf");
 }
 :root {
-  --color-primary: #09080b;
-  --color-secondary: #2e2d32;
-  --color-therd: #73655e;
-  --color-light: #c5a38b;
-  --color-dark: #e2dad2;
+  --color-primary: #05090a;
+  --color-secondary: #1f4b56;
+  --color-therd: #62584c;
+  --color-light: #c5a58a;
+  --color-dark: #33a9bf;
+  --color-blue: rgba(28, 29, 49, 0.774);
+  --color-white: rgba(232, 219, 191, 0.813);
 }
-
 .container {
-  background-image: url("../../img/IMG-7644.jpg");
+  background-image: url("../../img/IMG_7644.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
   width: 1550px;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .form {
@@ -71,12 +72,13 @@
   margin-bottom: 3px;
   margin-top: 10px;
   margin-right: 30px;
+  margin-left: -135px;
   width: 210px;
-  height: 30px;
-  background-color: var(--color-therd);
+  height: 32px;
+  background-color: var(--color-secondary);
   border: none;
   font-size: 10pt;
-  color: var(--color-dark);
+  color: white;
   padding-left: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -84,40 +86,39 @@
   cursor: pointer;
   justify-content: center;
   font-family: "Promp personalizada";
+  border: solid 1.5px var(--color-dark);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  animation: pulse 2s infinite;
 }
 .btn:hover {
-  background-color: var(
-    --color-light
-  ); /* Cambia el color de fondo al pasar el cursor */
   transform: translateY(
     -3px
   ); /* Mueve el botón hacia arriba al pasar el cursor */
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
-  color: var(--color-secondary);
+  color: white;
 }
 
 .activityName {
-    margin: 30px auto;
-    margin-top: 30px;
-    margin-left: -800px;
-    width: 95%;
-    height: 15%;
-    border-radius: 10px;
-    box-shadow: 5px 5px 3px 7px rgba(0, 0, 0, 0.25),
-      5px 5px 3px 7px rgba(0, 0, 0, 0.22);
-    transition: 0.8s;
-    background-color: var(--color-secondary);
-    color: var(--color-light);
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content:space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: absolute;
-    font-family: "Promp personalizada";
-    font-size: 15px;
-    
+  margin: 30px auto;
+  margin-top: 64px;
+  margin-left: -940px;
+  width: 95%;
+  height: 7%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 3px 7px rgba(0, 0, 0, 0.25),
+    5px 5px 3px 7px rgba(0, 0, 0, 0.22);
+  transition: 0.8s;
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: absolute;
+  font-family: "Promp personalizada";
+  font-size: 15px;
 }
 
 .btnClose {
@@ -128,14 +129,14 @@
 .btnHome {
   font-family: "Promp personalizada";
   text-decoration: none;
-  margin-left: 145px;
+  margin-left: 5px;
   margin-top: 0%;
   width: 130px;
   height: 40px;
-  background-color: var(--color-dark);
+  background-color: rgba(182, 153, 153, 0.5);
   border: 12px;
   font-size: 20pt;
-  color: var(--color-therd);
+  color: var(--color-white);
   padding-left: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -144,6 +145,9 @@
   align-items: center;
   flex-direction: row;
   justify-content: center;
+  box-shadow: 5px 5px 3px 7px rgba(0, 0, 0, 0.25),
+    5px 5px 3px 7px rgba(0, 0, 0, 0.22);
+  opacity: 0.8;
 }
 
 .btnHome:hover {
@@ -170,7 +174,6 @@
   font-family: "Promp personalizada";
   border: 2px solid rgba(8, 7, 7, 0.527);
   border-radius: 12px;
-
   transition: all 0.25s ease;
 }
 

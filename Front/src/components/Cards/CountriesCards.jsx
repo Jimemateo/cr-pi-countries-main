@@ -38,7 +38,7 @@ function CountriesCards ({countries}) {
             <div className={styles.wrapper}>
                 <div className={styles.searchContainer}>
                     {/* Botón para ir a la página anterior */}
-                    <button className={styles.btn} onClick={() => showPages(currentPage > 1 ?
+                    <button className={styles.btnIzq} onClick={() => showPages(currentPage > 1 ?
                         currentPage - 1 : currentPage)}>{'«'}</button>
                     <div>
                         {/* Enlace para crear una actividad turística */}
@@ -47,7 +47,7 @@ function CountriesCards ({countries}) {
                         </Link>
                     </div>
                     {/* Botón para ir a la página siguiente */}
-                    <button className={styles.btn} onClick={() => showPages(currentPage < pages ?
+                    <button className={styles.btnDer} onClick={() => showPages(currentPage < pages ?
                         currentPage + 1 : currentPage)}>{`»`}</button>
                 </div>
             
