@@ -21,7 +21,7 @@
   bottom: 0;
   left: 0;
   background-image: url("../../../img/descarga\ \(1\).jpeg"); /* Establece la imagen de fondo en el pseudo-elemento */
-  background-color: rgb(7, 7, 0); /* Ajusta el último valor para controlar la opacidad */
+  background-color: black; /* Ajusta el último valor para controlar la opacidad */
   background-size:auto;
   background-repeat: no-repeat;
   z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */

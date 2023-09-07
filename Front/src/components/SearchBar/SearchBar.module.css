@@ -82,12 +82,10 @@
 }
 
 .resetBtn:hover {
-  background-color: var(
-    --color-therd
-  ); /* Cambia el color de fondo al pasar el cursor */
+ 
   transform: translateY(
     -3px
   ); /* Mueve el botón hacia arriba al pasar el cursor */
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
-  color: var(--color-primary);
+  color: white;
 }

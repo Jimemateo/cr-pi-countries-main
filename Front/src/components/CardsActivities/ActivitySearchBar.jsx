@@ -6,7 +6,7 @@ import ActivityName from "./ActivityName.jsx";
 import { activityPropTypes } from "../propTypes";
 
 
-function SearchBarActivity({ activity, getActivities, cleanActivity }) {
+function SearchBarActivity({ activities, getActivities, cleanActivity }) {
   // Define estados iniciales para el formulario y el estado del botón.
   const [formActualState, setFormActualState] = useState("");
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -24,13 +24,12 @@ function SearchBarActivity({ activity, getActivities, cleanActivity }) {
   function handleButtonClick() {
     if (!formActualState) {
       return alert("You must enter an activity name");
-    } 
-      setButtonClicked(true);
-      setActivityNameButtonClose(true);
-      setHasSearchedAct(true); // Indicar que se ha realizado una búsqueda
-
-    
+    }
+    setButtonClicked(true);
+    setActivityNameButtonClose(true);
+    setHasSearchedAct(true); // Indicar que se ha realizado una búsqueda
   }
+
   // Función para manejar cambios en el campo de entrada.
   function handleChange(event) {
     setFormActualState(event.target.value); // Actualiza el estado con el valor del campo de búsqueda a medida que se escribe
@@ -45,7 +44,7 @@ function SearchBarActivity({ activity, getActivities, cleanActivity }) {
     cleanActivity(); //Limpia la actividad en el estado Redux
   }
 
-  function handleReset(){
+  function handleReset() {
     setButtonClicked(false);
     setHasSearchedAct(false);
     cleanActivity();
@@ -69,25 +68,21 @@ function SearchBarActivity({ activity, getActivities, cleanActivity }) {
         >
           Look for an Activity!
         </button>
-        
+
         {/* Muestra el componente 'ActivityName' si se ha hecho clic en el botón y se encontró una actividad */}
-        {buttonClicked && activity.name ? (
-          <ActivityName 
-            name={activity.name}
-            duration={activity.duration}
-            difficulty={activity.difficulty}
-            season={activity.season}
-            countries={activity.Countries}
+        {buttonClicked && activities.length > 0 ? (
+          <ActivityName
+            activities={activities}
             onClose={handleActivityNameButtonClose}
             activityNameButtonClose={activityNameButtonClose}
           />
         ) : null}
-        
+
       </form>
       {/* Mostrar el botón de reset si se ha realizado una búsqueda */}
       {hasSearchedAct && (
-        <button className={styles.resetBtn} onClick={handleReset}>
-          Show All Activities
+        <button className={styles.resetBtnAct} onClick={handleReset}>
+          X
         </button>
       )}
     </div>
@@ -97,7 +92,7 @@ function SearchBarActivity({ activity, getActivities, cleanActivity }) {
 // Función que mapea el estado de Redux a las props del componente.
 const mapStateToProps = (state) => {
   return {
-    activity: state.activities[0],
+    activities: state.activities,
   };
 };
 
@@ -114,4 +109,4 @@ const mapDispatchToProps = (dispatch) => {
 // Define PropTypes para el componente.
 SearchBarActivity.propTypes = activityPropTypes;
 // Conecta el componente a Redux y exporta la versión conectada.
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBarActivity);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBarActivity); 

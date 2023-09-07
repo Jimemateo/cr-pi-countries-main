@@ -100,30 +100,55 @@
 
 .activityName {
   margin: 30px auto;
-  margin-top: 78px;
-  margin-left: -940px;
-  width: 95%;
-  height: 7%;
+  margin-top: 25px;
+  margin-left: -580px;
+  width: 49%;
+  max-height: 100px;
+  overflow-y: auto;
   border-radius: 10px;
-  box-shadow: 5px 5px 3px 7px rgba(0, 0, 0, 0.25),
-    5px 5px 3px 7px rgba(0, 0, 0, 0.22);
-  transition: 0.8s;
-  background-color: var(--color-secondary);
-  color: var(--color-light);
+  background-color: black;
   display: flex;
-  align-items: center;
-  text-align: center;
+  padding: 20px;
   justify-content: space-around;
-  flex-direction: row;
+  flex-direction:column;
   flex-wrap: wrap;
   position: absolute;
+}
+
+.activityInfo {
+  background-color: black;
+  align-items: center;
   font-family: "Promp personalizada";
   font-size: 15px;
+  text-align: center;
+  margin-left: 5px;
+  color: white;
+  width: 50%; /* Haz que la tabla ocupe todo el ancho del contenedor */
+
+}
+/* Estilo para las celdas de encabezado */
+.activityInfo th {
+  padding: 10px; /* Añade espacio interno en las celdas */
+  text-align: left; /* Alinea el texto a la izquierda */
+  border: 1px solid #dddddd; /* Agrega bordes a las celdas */
+}
+
+/* Estilo para las celdas de datos */
+.activityInfo td {
+  padding: 10px; /* Añade espacio interno en las celdas */
+  text-align: left; /* Alinea el texto a la izquierda */
+  border: 1px solid #dddddd; /* Agrega bordes a las celdas */
 }
 
 .btnClose {
   border-radius: 10px;
+  color: #1f4b56;
+  background-color: #1f4b56;
   cursor: pointer;
+  margin-top: -10px;
+  margin-right: 1400px;
+  opacity: 0;
+
 }
 
 .btnHome {
@@ -136,7 +161,7 @@
   background-color: rgba(182, 153, 153, 0.5);
   border: 12px;
   font-size: 20pt;
-  color: var(--color-white);
+  color: black;
   padding-left: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -306,4 +331,28 @@
   position: absolute;
   font-family: "Promp personalizada";
   z-index: 5;
+}
+
+.resetBtnAct{
+  position: absolute;
+  top: 1;
+  left: 70;
+  margin-right: 125px;
+  margin-left: -270px;
+  margin-top: -10px;
+  margin-bottom: -50px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-secondary);
+  border: solid 0.5px;
+  font-size: 10pt;
+  color: white;
+  padding-left: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 50px;
+  cursor: pointer;
+  justify-content: center;
+  font-family: "Promp personalizada";
+  float: left;
 }
