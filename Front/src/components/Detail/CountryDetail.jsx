@@ -40,9 +40,9 @@ function CountryDetail({ country, getCountryId }) {
           <p>Population: {country.population}</p>
           <p>
             Tourist Activities:{" "}
-            {country.activities
-              ? country.activities.map(
-                  (activity) => "&laquo;" + activity.name + "&raquo; "
+            {country.Activities
+              ? country.Activities.map(
+                  (activity) => "«" + activity.name + "»"
                 )
               : null}
           </p>

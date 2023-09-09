@@ -48,9 +48,6 @@ export async function countriesOrder(orderTarget, criteria) {
 }
 // Esta función filtra países según los criterios seleccionados.
 export async function filterContinentActivity(orderTarget, criteria) {
-  // if (!Array.isArray(orderTarget) || orderTarget.length === 0) {
-  //   return [];
-  // }
   let filteredCountries = [...orderTarget];
   if (criteria.continent) {
     filteredCountries = orderTarget.filter((country) =>
@@ -58,29 +55,16 @@ export async function filterContinentActivity(orderTarget, criteria) {
     );
   }
   if (criteria.activities) {
-    filteredCountries = orderTarget.filter(
-      (countries) =>
-        countries.activities.filter(
+    filteredCountries = orderTarget.filter((country) => {
+      return (
+        country.Activities.filter(
           (activity) => activity.name === criteria.activities
         ).length > 0
-    );
+      );
+    });
   }
 
   return filteredCountries;
-
-  // let filteredCountries = [];
-
-  // if (orderTarget && criteria.activities) {
-  //   // Filtrar países por actividades.
-  //   filteredCountries = orderTarget.filter(
-  //     (country) =>
-  //       country.activities.filter(
-  //         (activity) => activity.name === criteria.activities
-  //       ).length
-  //   );
-  // }
-
-  // return filteredCountries;
 }
 
 // Esta función valida la entrada del usuario y devuelve mensajes de error si la validación falla.
