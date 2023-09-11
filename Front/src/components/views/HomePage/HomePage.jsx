@@ -6,7 +6,13 @@ import styles from "./HomePage.module.css";
 import Nav from "../../NavBar/Nav.jsx";
 import { homePropTypes } from "../../propTypes.js";
 
-function Home({ countries, getCountries, getActivities, hasSearched, hasSearchedAct }) {
+function Home({
+  countries,
+  getCountries,
+  getActivities,
+  hasSearched,
+  hasSearchedAct,
+}) {
   // Destructura las props countries, getCountries y getActivities del objeto props
 
   useEffect(() => {
@@ -22,7 +28,9 @@ function Home({ countries, getCountries, getActivities, hasSearched, hasSearched
       <div>
         {/* Renderiza el componente CountriesCards y pasa la lista de países como prop */}
         {/* Renderiza el componente de cartas de países solo si no se ha realizado una búsqueda */}
-        {(!hasSearched || !hasSearchedAct) && <CountriesCards countries={countries} />}
+        {(!hasSearched || !hasSearchedAct) && (
+          <CountriesCards countries={countries} />
+        )}
       </div>
     </div>
   );
@@ -35,7 +43,7 @@ const mapStateToProps = (state) => {
     // Mapea la lista de países desde el estado de Redux a la prop countries
     countries: state.countries,
     hasSearched: state.hasSearched, // Agrega el estado de hasSearched desde Redux
-    hasSearchedAct: state.hasSearchedAct // Agrega el estado a hasSearched desde Redux
+    hasSearchedAct: state.hasSearchedAct, // Agrega el estado a hasSearched desde Redux
   };
 };
 

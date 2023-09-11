@@ -2,7 +2,6 @@ import { useState } from "react";
 import { getCountries, cleanCountry } from "../../redux/actions.js"; // Importa las acciones getCountries y cleanCountry desde el archivo de acciones
 import { connect } from "react-redux";
 import styles from "./SearchBar.module.css";
-// import CountryName from "../Name/CountryName.jsx";
 import { searchBarPropTypes } from "../propTypes";
 
 function SearchBar({ getCountries, cleanCountry }) {
@@ -23,7 +22,7 @@ function SearchBar({ getCountries, cleanCountry }) {
 
   function handleSubmit(event) {
     getCountries(formActualState); // Realiza una búsqueda de país por nombre usando la acción getCountries
-    event.preventDefault(); // Evita el comportamiento predeterminado del formulario
+    event.preventDefault(); // Evita que la pagina se refresque
     setFormActualState(""); // Restablece el valor del campo de búsqueda
     cleanCountry(); // Limpia el país en el estado Redux
   }

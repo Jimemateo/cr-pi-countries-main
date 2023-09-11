@@ -77,7 +77,10 @@ export function getActivities(name = null) {
         payload: data,
       });
     } catch (error) {
-      window.alert(error.message="That activity does not exist. Maybe you can create a new one!");
+      window.alert(
+        (error.message =
+          "That activity does not exist. Maybe you can create a new one!")
+      );
     }
   };
 }

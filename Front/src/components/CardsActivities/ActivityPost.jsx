@@ -37,13 +37,6 @@ function ActivityPost({ countries, activityPost, getAllCountries }) {
     getAllCountries();
   }, []);
 
-  //mis handlers
-  /*
-handleCountriesSelection es un manejador de 
-eventos para la selección de países. Añade o quita
- países en el estado input según las selecciones del usuario.
-*/
-
   // Manejador de cambios en los campos del formulario.
   function handleInputChange(event) {
     // Realiza validación y actualiza el estado en función de los cambios del usuario.
@@ -100,6 +93,7 @@ También maneja errores si la creación de la actividad falla.
     event.preventDefault();
     // Realiza la acción de 'postActivity' para crear una actividad
     activityPost(input);
+    setInput("");
   }
   // Manejador para mostrar un mensaje de éxito o error al hacer clic en el botón de envío.
   function onCLickSubmit() {
@@ -150,7 +144,6 @@ También maneja errores si la creación de la actividad falla.
               <option value="Autum">Autumn</option>
               <option value="Winter">Winter</option>
               <option value="Spring">Spring</option>
-              <option value="Allseasons">All the Year</option>
             </select>
           </div>
 

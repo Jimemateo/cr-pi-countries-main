@@ -47,6 +47,7 @@ export async function countriesOrder(orderTarget, criteria) {
   return orderedCountries;
 }
 // Esta función filtra países según los criterios seleccionados.
+
 export async function filterContinentActivity(orderTarget, criteria) {
   let filteredCountries = [...orderTarget];
   if (criteria.continent) {
