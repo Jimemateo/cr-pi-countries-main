@@ -52,7 +52,7 @@
   transform: rotateY(
     180deg
   ); /* Gira 180 grados en estado de hover para mostrar el dorso */
-  transition: transform 0.25s easy-out;
+  transition: transform 0.45s easy-out;
 
 }
 

@@ -196,7 +196,7 @@ También maneja errores si la creación de la actividad falla.
           >
             <option value="">
               {/* Selector para la selección de países */}
-              Choose a Country or Countries
+              Choose a Country
             </option>
             {countries &&
               countries.map((item) => {
