@@ -60,7 +60,7 @@
 .resetBtn {
   position: absolute;
   top: 1;
-  left: 70;
+  left: 0;
   margin-right: 125px;
   margin-left: 60px;
   margin-top: 15px;
@@ -70,7 +70,7 @@
   background-color: var(--color-secondary);
   border: 5px;
   font-size: 10pt;
-  color: var(--color-dark);
+  color: white;
   padding-left: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

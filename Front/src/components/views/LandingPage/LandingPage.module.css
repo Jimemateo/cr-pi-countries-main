@@ -38,7 +38,7 @@
 }
 
 .h2button {
-  color: var(--color-secondary);
+  color: white;
   background-color: var(--color-light);
   padding: inline-block;
   border: none;
