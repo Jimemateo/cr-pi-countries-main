@@ -42,6 +42,7 @@
   align-items: center;
   cursor: pointer;
   border: solid 1.5px var(--color-dark);
+  font-family: "Promp personalizada"
 }
 .btnIzq:hover {
   background-color: var(
@@ -52,6 +53,15 @@
   ); /* Mueve el botón hacia arriba al pasar el cursor */
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
   color: white;
+}
+.pageNumber{
+  font-family: "Promp personalizada";
+  font-size: 15px;
+  color: white;
+  margin-left: -190px;
+  margin-top: -45px;
+
+
 }
 .btnDer {
   margin-right: 80px;
@@ -73,6 +83,7 @@
   align-items: center;
   cursor: pointer;
   border: solid 1.5px var(--color-dark);
+  font-family: "Promp personalizada"
 }
 .btnDer:hover {
   background-color: var(

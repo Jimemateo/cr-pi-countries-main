@@ -7,6 +7,7 @@ import Nav from "../../NavBar/Nav.jsx";
 import { homePropTypes } from "../../propTypes.js";
 
 function Home({
+  allCountries,
   countries,
   getCountries,
   getActivities,
@@ -17,7 +18,9 @@ function Home({
 
   useEffect(() => {
     // Este efecto se ejecuta cuando el componente se monta
-    getCountries(); // Llama a la acción getCountries para obtener la lista de países
+    if (allCountries.length <= 0) {
+      getCountries(); // Llama a la acción getCountries para obtener la lista de países
+    }
     getActivities(); // Llama a la acción getActivities para obtener la lista de actividades
   }, []);
 
@@ -41,6 +44,7 @@ const mapStateToProps = (state) => {
 
   return {
     // Mapea la lista de países desde el estado de Redux a la prop countries
+    allCountries: state.allCountries,
     countries: state.countries,
     hasSearched: state.hasSearched, // Agrega el estado de hasSearched desde Redux
     hasSearchedAct: state.hasSearchedAct, // Agrega el estado a hasSearched desde Redux

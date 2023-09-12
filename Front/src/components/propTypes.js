@@ -33,7 +33,6 @@ export const activityPostPropTypes = {
 };
 
 export const countryDetailPropTypes = {
-  match: PropTypes.object.isRequired,
   country: PropTypes.shape({
     name: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
@@ -81,11 +80,7 @@ export const activityPropTypes = {
 };
 
 export const countriesFilterPropTypes = {
-  countriesOrder: PropTypes.array.isRequired,
-  orderCountries2: PropTypes.func.isRequired,
-  filterCountries2: PropTypes.func.isRequired,
   activities: PropTypes.array.isRequired,
-  getAllCountries: PropTypes.func.isRequired,
 };
 
 export const CountryNamePropTypes = {

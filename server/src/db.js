@@ -1,15 +1,15 @@
-require("dotenv").config(); // Cargamos las variables de entorno desde un archivo .env
-const { Sequelize } = require("sequelize"); // Importamos la clase Sequelize desde la librería
-const fs = require("fs"); // Importamos las librerías fs (file system) y path para trabajar con archivos y rutas
+require("dotenv").config();
+const { Sequelize } = require("sequelize");
+const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env; // Obtenemos las variables de entorno para la conexión a la base de datos
+const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`,
   {
     // Creamos una instancia de Sequelize para conectarnos a la base de datos 'countries'
-    logging: false, // Desactiva los mensajes de log en la consola
-    native: false, // Usa la implementación JS en lugar de la implementación nativa para la conexión
+    logging: false,
+    native: false,
   }
 );
 
@@ -38,10 +38,10 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-// Obtenemos la referencia al modelo Country de sequelize
+// Obtenemos la referencia al modelo Country y Activity de sequelize
 const { Country, Activity } = sequelize.models;
 
-// Aca vendrian las relaciones
+// Relaciones
 Country.belongsToMany(Activity, { through: "CountryActivity" });
 Activity.belongsToMany(Country, { through: "CountryActivity" });
 

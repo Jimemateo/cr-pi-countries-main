@@ -7,14 +7,25 @@ import {
   FILTER_COUNTRIES,
   CLEAN_COUNTRY,
   CLEAN_ACTIVITY,
+  APPLY_FILTERS,
+  APPLY_ORDERING
 } from "./actions.types.js";
 const initialState = {
   countries: [],
   country: [],
   activity: {},
   formActivity: {},
-  countriesOrder: [],
+  allCountries: [],
   activities: [],
+  filters: {
+    activity: undefined,
+    continent: undefined,
+  },
+  order: {
+    name: undefined,
+    population: undefined,
+    continent: undefined,
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -23,7 +34,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         countries: action.payload, // Actualiza la lista de países con los datos obtenidos
-        countriesOrder: action.payload, // Actualiza la lista de países ordenados con los datos obtenidos
+        allCountries: action.payload, // Actualiza la lista de países ordenados con los datos obtenidos
         country: action.country, // Establece los detalles del país con los datos obtenidos por nombre
       };
     case CLEAN_COUNTRY:
@@ -41,11 +52,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         activities: action.payload,
       };
-    case CLEAN_ACTIVITY:
-      return {
-        ...state,
-        country: action.payload, // Limpia los detalles de la actividad
-      };
+      case CLEAN_ACTIVITY:
+        return {
+          ...state,
+          country: action.payload, // Limpia los detalles de la actividad
+        };
     case ORDER_COUNTRIES:
       return {
         ...state,
@@ -61,6 +72,22 @@ const reducer = (state = initialState, action) => {
         ...state,
         formActivity: action.payload, // Establece los detalles de la actividad turística creada con los datos obtenidos
         activities: state.activities.concat(action.payload), // Agrega la nueva actividad turística a la lista de actividades existentes
+      };
+    case APPLY_FILTERS:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          ...action.payload,
+        }
+      };
+    case APPLY_ORDERING:
+      return {
+        ...state,
+        order: {
+          ...state.order,
+          ...action.payload,
+        }
       };
     default:
       return {

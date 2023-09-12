@@ -4,69 +4,66 @@ export async function countriesOrder(orderTarget, criteria) {
 
   if (criteria.name === "Ascendent")
     // Ordenar países por nombre en orden ascendente.
-    orderedCountries = orderTarget.sort((a, b) =>
+    orderedCountries = orderedCountries.sort((a, b) =>
       a.name > b.name ? 1 : a.name < b.name ? -1 : 0
     );
 
   if (criteria.name === "Descendent")
     // Ordenar países por nombre en orden descendente.
-    orderedCountries = orderTarget.sort((a, b) =>
+    orderedCountries = orderedCountries.sort((a, b) =>
       a.name < b.name ? 1 : a.name > b.name ? -1 : 0
     );
 
   if (criteria.population === "Ascendent")
-    orderedCountries = orderTarget.sort((a, b) =>
+    orderedCountries = orderedCountries.sort((a, b) =>
       a.population > b.population ? 1 : a.population < b.population ? -1 : 0
     );
 
   if (criteria.population === "Descendent")
-    orderedCountries = orderTarget.sort((a, b) =>
+    orderedCountries = orderedCountries.sort((a, b) =>
       a.population < b.population ? 1 : a.population > b.population ? -1 : 0
     );
 
   if (criteria.continent === "Ascendent")
-    orderedCountries = orderTarget.sort((a, b) =>
+    orderedCountries = orderedCountries.sort((a, b) =>
       a.continent > b.continent ? 1 : a.continent < b.continent ? -1 : 0
     );
 
   if (criteria.continent === "Descendent")
-    orderedCountries = orderTarget.sort((a, b) =>
+    orderedCountries = orderedCountries.sort((a, b) =>
       a.continent < b.continent ? 1 : a.continent > b.continent ? -1 : 0
     );
 
   if (criteria.area === "Ascendent")
-    orderedCountries = orderTarget.sort((a, b) =>
+    orderedCountries = orderedCountries.sort((a, b) =>
       a.area > b.area ? 1 : a.area < b.area ? -1 : 0
     );
 
   if (criteria.area === "Descendent")
-    orderedCountries = orderTarget.sort((a, b) =>
+    orderedCountries = orderedCountries.sort((a, b) =>
       a.area < b.area ? 1 : a.area > b.area ? -1 : 0
-    );
+    );  
 
   return orderedCountries;
 }
-// Esta función filtra países según los criterios seleccionados.
 
+// Esta función filtra países según los criterios seleccionados.
 export async function filterContinentActivity(orderTarget, criteria) {
   let filteredCountries = [...orderTarget];
+
   if (criteria.continent) {
-    filteredCountries = orderTarget.filter((country) =>
-      country.continent.includes(criteria.continent)
-    );
+    filteredCountries = filteredCountries.filter((country) => country.continent.includes(criteria.continent));
   }
+
   if (criteria.activities) {
-    filteredCountries = orderTarget.filter((country) => {
-      return (
-        country.Activities.filter(
-          (activity) => activity.name === criteria.activities
-        ).length > 0
-      );
-    });
+    filteredCountries = filteredCountries.filter(country => {
+      return country.Activities.filter(activity => activity.name === criteria.activities).length > 0
+    })
   }
 
   return filteredCountries;
 }
+
 
 // Esta función valida la entrada del usuario y devuelve mensajes de error si la validación falla.
 export function validate(input) {

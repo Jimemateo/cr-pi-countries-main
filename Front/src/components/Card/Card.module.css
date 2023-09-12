@@ -35,7 +35,8 @@
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition: transform 0.5s ease; /* Agrega una transición suave a la propiedad transform */
+  transition: transform 0.25s easy-out;
+
 }
 
 .countryCardFront,
@@ -51,6 +52,8 @@
   transform: rotateY(
     180deg
   ); /* Gira 180 grados en estado de hover para mostrar el dorso */
+  transition: transform 0.25s easy-out;
+
 }
 
 .countryCardFront {
@@ -99,6 +102,8 @@
   left: 0;
   right: 0;
   bottom: 0;
+  transition: transform 0.25s easy-out;
+
 }
 
 .countryCard:hover {

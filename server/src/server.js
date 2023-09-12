@@ -9,7 +9,7 @@ const routes = require("./routes/index.js"); // Importa el archivo de rutas pers
 require("./db.js"); // Importa y ejecuta la configuración de la base de datos
 
 // Creación de una instancia de Express
-const server = express(); // Crea una instancia de la aplicación Express
+const server = express();
 server.name = "API"; // Asigna un nombre a la aplicación Express
 
 // Configuración de middleware
@@ -24,7 +24,9 @@ server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
-  ); // Define los encabezados permitidos
+  );
+
+  // Define los encabezados permitidos
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE"); // Define los métodos HTTP permitidos
   next(); // Continúa con la siguiente función de middleware
 });
@@ -41,4 +43,4 @@ server.use((err, req, res, next) => {
 });
 
 // Exportar la instancia de la aplicación Express configurada
-module.exports = server; // Exporta la instancia de la aplicación Express para su uso en otros archivos
+module.exports = server;

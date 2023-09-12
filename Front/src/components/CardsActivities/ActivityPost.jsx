@@ -1,17 +1,12 @@
-// Importa 'connect' de 'react-redux' para conectar el componente a Redux y acciones.
 import { connect } from "react-redux";
-// Importa las acciones específicas que se utilizarán.
 import {
   getCountries,
   postActivity,
   getActivities,
 } from "../../redux/actions.js";
-// Importa 'useState' y 'useEffect' de React para gestionar el estado y efectos secundarios.
 import { useState, useEffect } from "react";
-// Importa la función 'validate' para realizar validaciones.
 import { validate } from "../../utils/validations.js";
 import styles from "./Activity.module.css";
-// Importa 'Link' de 'react-router-dom' para crear enlaces internos en la aplicación.
 import { Link } from "react-router-dom";
 import { activityPostPropTypes } from "../propTypes.js";
 
@@ -34,8 +29,17 @@ function ActivityPost({ countries, activityPost, getAllCountries }) {
 
   // Utiliza 'useEffect' para cargar la lista de países al montar el componente.
   useEffect(() => {
-    getAllCountries();
+    if (countries.length <= 0) {
+      getAllCountries();
+    }
   }, []);
+
+  //mis handlers
+  /*
+handleCountriesSelection es un manejador de 
+eventos para la selección de países. Añade o quita
+ países en el estado input según las selecciones del usuario.
+*/
 
   // Manejador de cambios en los campos del formulario.
   function handleInputChange(event) {
@@ -93,7 +97,13 @@ También maneja errores si la creación de la actividad falla.
     event.preventDefault();
     // Realiza la acción de 'postActivity' para crear una actividad
     activityPost(input);
-    setInput("");
+    setInput({
+      name: "",
+      difficulty: "", // 1 a 5
+      duration: "",
+      season: "", //otoño, invierno, primavera, verano
+      countries: [],
+    });
   }
   // Manejador para mostrar un mensaje de éxito o error al hacer clic en el botón de envío.
   function onCLickSubmit() {
@@ -138,8 +148,9 @@ También maneja errores si la creación de la actividad falla.
               className={styles.selectSeason}
               onChange={handleInputChange}
               name="season"
+              value={input.season}
             >
-              <option value={input.season}>{"Choose Season"}</option>
+              <option value="">{"Choose Season"}</option>
               <option value="Summer">Summer</option>
               <option value="Autum">Autumn</option>
               <option value="Winter">Winter</option>
@@ -154,6 +165,7 @@ También maneja errores si la creación de la actividad falla.
               className={styles.selectDifficulty}
               onChange={handleInputChange}
               name="difficulty"
+              value={input.difficulty}
             >
               <option value={input.difficulty}>{"Choose Difficulty"}</option>
               <option value="1">1</option>
@@ -223,7 +235,7 @@ También maneja errores si la creación de la actividad falla.
 // Función que mapea el estado de Redux a las props del componente.
 const mapStateToProps = (state) => {
   return {
-    countries: state.countries,
+    countries: state.allCountries,
   };
 };
 // Función que mapea las acciones de Redux a las props del componente.

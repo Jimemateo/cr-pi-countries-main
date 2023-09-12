@@ -9,6 +9,8 @@ import {
   FILTER_COUNTRIES,
   CLEAN_COUNTRY,
   CLEAN_ACTIVITY,
+  APPLY_FILTERS,
+  APPLY_ORDERING,
 } from "./actions.types.js";
 // Importa funciones de validación personalizadas
 import {
@@ -110,11 +112,7 @@ export function cleanActivity() {
 
 // Acción para ordenar países
 export function orderCountries(orderTarget, criteria) {
-  // return {
-  //     type: ORDER_COUNTRIES,
-  //     payload: countriesOrder(orderTarget, criteria),
-  //   };
-  // }
+
   return async (dispatch) => {
     countriesOrder(orderTarget, criteria).then((orderTarget) => {
       return dispatch({
@@ -127,12 +125,33 @@ export function orderCountries(orderTarget, criteria) {
 
 // Acción para filtrar países por continente o actividad turística
 export function filterCountries(orderTarget, criteria) {
+  console.log(`filter countries ${JSON.stringify(criteria)}`);
   return async (dispatch) => {
     filterContinentActivity(orderTarget, criteria).then((orderTarget) => {
       return dispatch({
         type: FILTER_COUNTRIES,
         payload: orderTarget,
       });
+    });
+  };
+}
+
+export function applyFilters(filters) {
+  return function (dispatch) {
+    console.log(`dispatch filters ${JSON.stringify(filters)}`);
+    dispatch({
+      type: APPLY_FILTERS,
+      payload: filters,
+    });
+  };
+}
+
+export function applyOrdering(order) {
+  return function (dispatch) {
+    console.log(`dispatch ordering ${JSON.stringify(order)}`);
+    dispatch({
+      type: APPLY_ORDERING,
+      payload: order,
     });
   };
 }

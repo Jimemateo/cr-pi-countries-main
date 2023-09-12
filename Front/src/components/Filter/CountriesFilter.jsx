@@ -1,108 +1,187 @@
 import styles from "./CountriesFilter.module.css";
 import {
   orderCountries,
-  getCountries,
   filterCountries,
+  applyFilters,
+  applyOrdering,
 } from "../../redux/actions.js";
 import { connect } from "react-redux";
 import { countriesFilterPropTypes } from "../propTypes.js";
+import { useEffect } from "react";
 
 //filtros
 function CountriesOrderFilters({
-  countriesOrder,
-  orderCountries2,
-  filterCountries2,
+  countries,
+  orderCountries,
+  filterCountries,
   activities,
-  getAllCountries,
+  applyFilters,
+  allCountries,
+  filters,
+  applyOrdering,
+  order,
 }) {
   // Funciones manejadoras para ordenar y filtrar países
   function handleName(event) {
-    // Si se selecciona 'Name', cargar todos los países
-    if (event.target.value === "Name") {
-      return getAllCountries();
-    }
-    // Ordenar países por nombre (ascendente o descendente)
-    orderCountries2(countriesOrder, { name: event.target.value });
+    applyOrdering({
+      name: event.target.value,
+    });
   }
 
   function handlePupulation(event) {
-    // Si se selecciona 'Population', cargar todos los países
-    if (event.target.value === "Population") {
-      return getAllCountries();
-    }
-    // Ordenar países por población (ascendente o descendente)
-    orderCountries2(countriesOrder, { population: event.target.value });
+    applyOrdering({
+      population: event.target.value,
+    });
   }
 
   function handleContinent(event) {
-    // Si se selecciona 'Continent', cargar todos los países
-    if (event.target.value === "Continent") {
-      return getAllCountries();
-    }
-    // Ordenar países por continente (ascendente o descendente)
-    orderCountries2(countriesOrder, { continent: event.target.value });
+    applyOrdering({
+      continent: event.target.value,
+    });
   }
 
   function handleFilterCountries(event) {
-    // Si se selecciona 'continentFilter', cargar todos los países
-    if (event.target.value === "continentFilter") {
-      return getAllCountries();
-    }
-    // Filtrar países por continente
-    filterCountries2(countriesOrder, { continent: event.target.value });
+    applyFilters({
+      continent: event.target.value,
+    });
   }
 
   async function handleFilterActivities(event) {
-    // Si se selecciona 'activityFilter', cargar todos los países
-    if (event.target.value === "activityFilter") {
-      return getAllCountries();
-    }
-
-    filterCountries2(countriesOrder, { activities: event.target.value });
+    applyFilters({
+      activity: event.target.value,
+    });
   }
+
+  useEffect(() => {
+    // se filtra sobre todos los paises cuando cambia el state filters
+    filterCountries(allCountries, {
+      activities: filters.activity,
+      continent: filters.continent,
+    });
+  }, [filters]);
+
+  useEffect(() => {
+    // se ordena sobre los paises filtrados cuando cambia el state order
+    orderCountries(countries, {
+      name: order.name,
+      continent: order.continent,
+      population: order.population,
+    });
+  }, [order]);
+
+  useEffect(() => {
+    //Se duplica porque sino no hace cambio de estado y no se disparan los filtrados
+    filterCountries(allCountries, {
+      activities: filters.activity,
+      continent: filters.continent,
+    });
+    orderCountries(countries, {
+      name: order.name,
+      continent: order.continent,
+      population: order.population,
+    });
+
+    return () => {};
+  }, []);
+
+  const nameOrderingOptions = [
+    { value: "", label: "Order by Name" },
+    { value: "Ascendent", label: "Ascendent" },
+    { value: "Descendent", label: "Descendent" },
+  ];
+
+  const continentOrderingOptions = [
+    { value: "", label: "Order by Continent" },
+    { value: "Ascendent", label: "Ascendent" },
+    { value: "Descendent", label: "Descendent" },
+  ];
+
+  const populationOrderingOptions = [
+    { value: "", label: "Order by Population" },
+    { value: "Ascendent", label: "Ascendent" },
+    { value: "Descendent", label: "Descendent" },
+  ];
+
+  const continentFilterOptions = [
+    { value: "", label: "Filter by Continent" },
+    { value: "America", label: "America" },
+    { value: "Africa", label: "Africa" },
+    { value: "Asia", label: "Asia" },
+    { value: "Europe", label: "Europe" },
+    { value: "Oceania", label: "Oceania" },
+    { value: "Antártida", label: "Antártida" },
+  ];
 
   return (
     <div className={styles.filters}>
       {/* Selección de opciones de orden y filtro */}
       <div>
-        <select className={styles.select} onChange={handleName}>
-          <option label="Order by Name" value="Name"></option>
-          <option value="Ascendent">Ascendente</option>
-          <option value="Descendent">Descendente</option>
+        <select
+          className={styles.select}
+          onChange={handleName}
+          value={order.name}
+        >
+          {nameOrderingOptions.map((option) => {
+            return (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            );
+          })}
         </select>
       </div>
       <div>
-        <select className={styles.select} onChange={handlePupulation}>
-          <option label="Order by Population" value="Population"></option>
-          <option value="Ascendent">Ascendent</option>
-          <option value="Descendent">Descendent</option>
+        <select
+          className={styles.select}
+          onChange={handlePupulation}
+          value={order.population}
+        >
+          {populationOrderingOptions.map((option) => {
+            return (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            );
+          })}
         </select>
       </div>
       <div>
-        <select className={styles.select} onChange={handleContinent}>
-          <option label="Order by Continent" value="Continent"></option>
-          <option value="Ascendent" label="Ascendent"></option>
-          <option value="Descendent" label="Descendent"></option>
+        <select
+          className={styles.select}
+          onChange={handleContinent}
+          value={order.continent}
+        >
+          {continentOrderingOptions.map((option) => {
+            return (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            );
+          })}
         </select>
       </div>
       <div>
-        <select className={styles.select} onChange={handleFilterCountries}>
-          <option label="Filter by Continent" value="continentFilter"></option>
-          <option value="America" label="América"></option>
-          <option value="Africa" label="Africa"></option>
-          <option value="Asia" label="Asia"></option>
-          <option value="Europe" label="Europa"></option>
-          <option value="Oceania" label="Oceanía"></option>
-          <option value="Antártida" label="Antártida"></option>
+        <select
+          className={styles.select}
+          onChange={handleFilterCountries}
+          value={filters.continent}
+        >
+          {continentFilterOptions.map((option) => {
+            return (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            );
+          })}
         </select>
       </div>
       <div>
-        <select className={styles.select} onChange={handleFilterActivities}>
-          <option
-            key="-1"
-            label="Filter by Tourist Activity"
-            value="activityFilter"
-          ></option>
+        <select
+          className={styles.select}
+          onChange={handleFilterActivities}
+          value={filters.activity}
+        >
+          <option key="-1" label="Filter by Tourist Activity" value=""></option>
           {/* Mapeo de opciones de actividad turística */}
           {activities.length
             ? activities.map((activity, i) => (
@@ -122,7 +201,10 @@ function CountriesOrderFilters({
 // Mapeo del estado de Redux a las props del componente
 const mapStateToProps = (state) => {
   return {
-    countriesOrder: state.countriesOrder,
+    allCountries: state.allCountries,
+    order: state.order,
+    filters: state.filters,
+    countries: state.countries,
     activities: state.activities,
   };
 };
@@ -130,10 +212,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   // dispatch es una función proporcionada por Redux que se utiliza para enviar acciones a los reducers.
   return {
-    orderCountries2: (orderTarget, criteria) =>
+    applyFilters: (filters) => dispatch(applyFilters(filters)),
+    applyOrdering: (order) => dispatch(applyOrdering(order)),
+    orderCountries: (orderTarget, criteria) =>
       dispatch(orderCountries(orderTarget, criteria)),
-    getAllCountries: () => dispatch(getCountries()),
-    filterCountries2: (countries, criteria) =>
+    filterCountries: (countries, criteria) =>
       dispatch(filterCountries(countries, criteria)),
   };
 };
