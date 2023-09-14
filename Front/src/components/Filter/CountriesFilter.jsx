@@ -220,17 +220,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(filterCountries(countries, criteria)),
   };
 };
-/*orderCountries2: Es una función que toma dos argumentos: orderTarget y criteria.
- Cuando se llama desde el componente, dispara la acción orderCountries con los argumentos proporcionados. 
-Esta acción se utiliza para ordenar la lista de países en la aplicación según ciertos criterios 
-(por ejemplo, nombre ascendente o descendente).
-
-getAllCountries: Es una función que no toma argumentos. Cuando se llama desde el componente, dispara la acción 
-getCountries. Esta acción se utiliza para obtener la lista completa de países.
-
-filterCountries2: Es una función que toma dos argumentos: countries y criteria. Cuando se llama desde el componente, 
-dispara la acción filterCountries con los argumentos proporcionados. Esta acción se utiliza para filtrar la lista de 
-países según ciertos criterios (por ejemplo, por continente o actividad turística). */
 
 CountriesOrderFilters.propTypes = countriesFilterPropTypes;
 

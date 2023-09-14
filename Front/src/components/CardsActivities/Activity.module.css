@@ -356,3 +356,15 @@
   font-family: "Promp personalizada";
   float: left;
 }
+
+.errorMessage {
+  font-family: "Promp personalizada";
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  margin-left: 55px;
+  background-color: red;
+  
+
+
+}

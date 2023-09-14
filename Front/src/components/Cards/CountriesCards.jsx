@@ -6,7 +6,7 @@ import styles from "./Cards.module.css";
 import { Link } from "react-router-dom";
 
 function CountriesCards({ countries }) {
-  // Declara un estado para almacenar los países que se mostrarán en la página actual.
+  // Estado local y función para actualizarlo -  estado para almacenar los países que se mostrarán en la página actual.
   const [actualStateCountries, setActualStateCountries] = useState([]);
 
   // Define una constante para el número de países por página.
@@ -17,7 +17,7 @@ function CountriesCards({ countries }) {
   // Declara un estado para almacenar la página actual.
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Función para mostrar los países de una página específica.
+  // Función que toma un num de pag como arg y muestra los paises de esa pag en actualStateCountries
   const showPages = (pageNum) => {
     const index = pageNum * countriesPorPage + 1;
     setActualStateCountries(
@@ -26,7 +26,7 @@ function CountriesCards({ countries }) {
     setCurrentPage(pageNum);
   };
 
-  // Usa el efecto para mostrar la primera página de países cuando el arreglo 'countries' cambia.
+  // muestra la primera página de países cuando el arreglo 'countries' cambia.
   useEffect(() => {
     showPages(1);
   }, [countries]);

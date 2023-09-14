@@ -27,7 +27,7 @@ function SearchBarActivity({ activities, getActivities, cleanActivity }) {
     }
     setButtonClicked(true);
     setActivityNameButtonClose(true);
-    setHasSearchedAct(true); // Indicar que se ha realizado una búsqueda
+    setHasSearchedAct(true); // Indica que se ha realizado una búsqueda
   }
 
   // Función para manejar cambios en el campo de entrada.
@@ -39,7 +39,6 @@ function SearchBarActivity({ activities, getActivities, cleanActivity }) {
   function handleSubmit(event) {
     getActivities(formActualState); // Realiza una búsqueda de actividad por nombre usando la acción getActivities
     event.preventDefault();
-    // Realiza la acción 'getActivities' para buscar una actividad por nombre.
     setFormActualState("");
     cleanActivity(); //Limpia la actividad en el estado Redux
   }

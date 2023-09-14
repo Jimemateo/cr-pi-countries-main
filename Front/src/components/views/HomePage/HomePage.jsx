@@ -1,13 +1,13 @@
 import { useEffect } from "react"; // Importa useEffect de React para realizar efectos secundarios
-import { connect } from "react-redux"; // Importa la función connect para conectar el componente a Redux
-import { getCountries, getActivities } from "../../../redux/actions.js"; // Importa las acciones getCountries y getActivities desde el archivo de acciones
+import { connect } from "react-redux"; 
+import { getCountries, getActivities } from "../../../redux/actions.js"; 
 import CountriesCards from "../../Cards/CountriesCards.jsx";
 import styles from "./HomePage.module.css";
 import Nav from "../../NavBar/Nav.jsx";
 import { homePropTypes } from "../../propTypes.js";
 
 function Home({
-  allCountries,
+  allCountries, //copia de getCountries
   countries,
   getCountries,
   getActivities,
@@ -18,7 +18,7 @@ function Home({
 
   useEffect(() => {
     // Este efecto se ejecuta cuando el componente se monta
-    if (allCountries.length <= 0) {
+    if (allCountries.length <= 0) { //si allCountries está vacia, llama a getCountries
       getCountries(); // Llama a la acción getCountries para obtener la lista de países
     }
     getActivities(); // Llama a la acción getActivities para obtener la lista de actividades
@@ -47,7 +47,7 @@ const mapStateToProps = (state) => {
     allCountries: state.allCountries,
     countries: state.countries,
     hasSearched: state.hasSearched, // Agrega el estado de hasSearched desde Redux
-    hasSearchedAct: state.hasSearchedAct, // Agrega el estado a hasSearched desde Redux
+    hasSearchedAct: state.hasSearchedAct, // Agrega el estado a hasSearchedAct desde Redux
   };
 };
 

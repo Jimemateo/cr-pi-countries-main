@@ -12,7 +12,7 @@ const getAllInfo = async () => {
       const allApiCountries = apiResponse.data.map((api) => {
         return {
           id: api.cca3,
-          name: api.name.common,
+          name: api.name.common, 
           flag: api.flags.png,
           continent: api.continents[0],
           capital: api.capital ? api.capital[0] : "capital not found",

@@ -1,12 +1,17 @@
+// Importa 'connect' de 'react-redux' para conectar el componente a Redux y acciones.
 import { connect } from "react-redux";
+// Importa las acciones específicas que se utilizarán.
 import {
   getCountries,
   postActivity,
   getActivities,
 } from "../../redux/actions.js";
+// Importa 'useState' y 'useEffect' de React para gestionar el estado y efectos secundarios.
 import { useState, useEffect } from "react";
+// Importa la función 'validate' para realizar validaciones.
 import { validate } from "../../utils/validations.js";
 import styles from "./Activity.module.css";
+// Importa 'Link' de 'react-router-dom' para crear enlaces internos en la aplicación.
 import { Link } from "react-router-dom";
 import { activityPostPropTypes } from "../propTypes.js";
 
@@ -139,7 +144,7 @@ También maneja errores si la creación de la actividad falla.
               onChange={handleInputChange}
               placeholder="Activity"
             />
-            {errors.name && <p>{errors.name}</p>}
+            {errors.name && <p className={styles.errorMessage} >{errors.name}</p>}
           </div>
           <div></div>
           <div>
@@ -148,9 +153,8 @@ También maneja errores si la creación de la actividad falla.
               className={styles.selectSeason}
               onChange={handleInputChange}
               name="season"
-              value={input.season}
             >
-              <option value="">{"Choose Season"}</option>
+              <option value={input.season}>{"Choose Season"}</option>
               <option value="Summer">Summer</option>
               <option value="Autum">Autumn</option>
               <option value="Winter">Winter</option>
@@ -165,7 +169,6 @@ También maneja errores si la creación de la actividad falla.
               className={styles.selectDifficulty}
               onChange={handleInputChange}
               name="difficulty"
-              value={input.difficulty}
             >
               <option value={input.difficulty}>{"Choose Difficulty"}</option>
               <option value="1">1</option>
@@ -187,7 +190,7 @@ También maneja errores si la creación de la actividad falla.
               onChange={handleInputChange}
               placeholder="Duration in Hours"
             />
-            {errors.duration && <p className="danger">{errors.duration}</p>}
+            {errors.duration && <p className={styles.errorMessage}>{errors.duration}</p>}
           </div>
 
           <select
@@ -196,7 +199,7 @@ También maneja errores si la creación de la actividad falla.
           >
             <option value="">
               {/* Selector para la selección de países */}
-              Choose a Country
+              Choose a Country or Countries
             </option>
             {countries &&
               countries.map((item) => {
@@ -217,7 +220,7 @@ También maneja errores si la creación de la actividad falla.
             onChange={handleInputChange}
             placeholder="Country"
           />
-          {errors.countries && <p className="danger">{errors.countries}</p>}
+          {errors.countries && <p className={styles.errorMessage}>{errors.countries}</p>}
 
           {/* Botón para crear la actividad */}
           <input

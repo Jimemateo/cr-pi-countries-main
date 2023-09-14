@@ -6,7 +6,6 @@ export default function ActivityName({ activities, onClose, activityNameButtonCl
 
     return (
         <div className={styles.activityName}>
-            {console.log(activities)}
             {/* Verifica si 'activityNameButtonClose' es verdadero antes de renderizar el contenido. */}
             {activityNameButtonClose ?
                 <div>
@@ -19,7 +18,7 @@ export default function ActivityName({ activities, onClose, activityNameButtonCl
                                 <th>Duration</th>
                                 <th>Difficulty</th>
                                 <th>Season</th>
-                                <th>Countries</th>
+                                <th>Country</th>
                             </tr>
                         </thead>
                         <tbody>
