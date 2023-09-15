@@ -4,8 +4,6 @@ const { Router } = require("express");
 const { Op } = require("sequelize");
 const router = Router();
 
-/*Get country by Id */
-//router.get("/:id",
 const getCountryById = async (req, res) => {
   const { id } = req.params; // Obtiene el parámetro de ruta 'id' de la solicitud
 

@@ -12,7 +12,7 @@ const getAllInfo = async () => {
       const allApiCountries = apiResponse.data.map((api) => {
         return {
           id: api.cca3,
-          name: api.name.common, 
+          name: api.name.common,
           flag: api.flags.png,
           continent: api.continents[0],
           capital: api.capital ? api.capital[0] : "capital not found",
@@ -25,13 +25,8 @@ const getAllInfo = async () => {
       for (const countryData of allApiCountries) {
         try {
           await Country.create(countryData);
-          console.log("Created:", countryData.name); // Log successful creation
-        } catch (error) {
-          console.error("Error creating:", countryData.name, error.message); // Log creation error
-        }
+        } catch (error) {}
       }
-
-      console.log("Data loaded into the database");
     }
   } catch (err) {
     console.error("Error fetching or processing data:", err.message); // Log error fetching or processing data

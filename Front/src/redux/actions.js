@@ -125,7 +125,6 @@ export function orderCountries(orderTarget, criteria) {
 
 // Acción para filtrar países por continente o actividad turística
 export function filterCountries(orderTarget, criteria) {
-  console.log(`filter countries ${JSON.stringify(criteria)}`);
   return async (dispatch) => {
     filterContinentActivity(orderTarget, criteria).then((orderTarget) => {
       return dispatch({

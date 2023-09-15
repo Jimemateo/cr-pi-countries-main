@@ -70,7 +70,6 @@ function CountriesOrderFilters({
   }, [order]);
 
   useEffect(() => {
-    //Se duplica porque sino no hace cambio de estado y no se disparan los filtrados
     filterCountries(allCountries, {
       activities: filters.activity,
       continent: filters.continent,
@@ -109,7 +108,7 @@ function CountriesOrderFilters({
     { value: "Asia", label: "Asia" },
     { value: "Europe", label: "Europe" },
     { value: "Oceania", label: "Oceania" },
-    { value: "Antártida", label: "Antártida" },
+    { value: "Antarctica", label: "Antarctica" },
   ];
 
   return (

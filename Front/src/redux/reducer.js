@@ -59,7 +59,7 @@ const reducer = (state = initialState, action) => {
         };
     case ORDER_COUNTRIES:
       return {
-        ...state,
+        ...state,                          //slice() nueva instancia del array - copia "superficial", sin pisar la copia original
         countries: action.payload.slice(), // Actualiza la lista de países con la lista ordenada (se crea una copia)
       };
     case FILTER_COUNTRIES:

@@ -144,7 +144,9 @@ También maneja errores si la creación de la actividad falla.
               onChange={handleInputChange}
               placeholder="Activity"
             />
-            {errors.name && <p className={styles.errorMessage} >{errors.name}</p>}
+            {errors.name && (
+              <p className={styles.errorMessage}>{errors.name}</p>
+            )}
           </div>
           <div></div>
           <div>
@@ -190,7 +192,9 @@ También maneja errores si la creación de la actividad falla.
               onChange={handleInputChange}
               placeholder="Duration in Hours"
             />
-            {errors.duration && <p className={styles.errorMessage}>{errors.duration}</p>}
+            {errors.duration && (
+              <p className={styles.errorMessage}>{errors.duration}</p>
+            )}
           </div>
 
           <select
@@ -220,7 +224,9 @@ También maneja errores si la creación de la actividad falla.
             onChange={handleInputChange}
             placeholder="Country"
           />
-          {errors.countries && <p className={styles.errorMessage}>{errors.countries}</p>}
+          {errors.countries && (
+            <p className={styles.errorMessage}>{errors.countries}</p>
+          )}
 
           {/* Botón para crear la actividad */}
           <input
