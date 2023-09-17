@@ -34,19 +34,28 @@ function CountriesCards({ countries }) {
   return (
     <>
       <div className={styles.wrapper}>
+        {/* Botón para ir a la página anterior */}
+        <button
+          className={styles.btnIzq}
+          onClick={() =>
+            showPages(currentPage > 1 ? currentPage - 1 : currentPage)
+          }
+        >
+          {"«"}
+        </button>
+
+        <div className={styles.pageNumber}>
+          {`Page ${currentPage} of ${pages}`}{" "}
+
+        {/* Botón para ir a la página siguiente */}
+        </div>
+        <button
+          className={styles.btnDer}
+          onClick={() =>
+            showPages(currentPage < pages ? currentPage + 1 : currentPage)
+          }
+          >{`»`}</button>
         <div className={styles.searchContainer}>
-          {/* Botón para ir a la página anterior */}
-          <button
-            className={styles.btnIzq}
-            onClick={() =>
-              showPages(currentPage > 1 ? currentPage - 1 : currentPage)
-            }
-          >
-            {"«"}
-          </button>
-
-          <div className={styles.pageNumber} >{`Page ${currentPage} of ${pages}`} </div>
-
           <div>
             {/* Enlace para crear una actividad turística */}
             <Link to={"/activity"}>
@@ -55,13 +64,6 @@ function CountriesCards({ countries }) {
               </button>
             </Link>
           </div>
-          {/* Botón para ir a la página siguiente */}
-          <button
-            className={styles.btnDer}
-            onClick={() =>
-              showPages(currentPage < pages ? currentPage + 1 : currentPage)
-            }
-          >{`»`}</button>
         </div>
 
         <div className={styles.container}>
@@ -77,8 +79,8 @@ function CountriesCards({ countries }) {
                 continent={country.continent}
               />
             ))}
-        </div>
       </div>
+        </div>
     </>
   );
 }
@@ -89,4 +91,3 @@ const mapStateToProps = (state) => {
 };
 CountriesCards.propTypes = cardsPropTypes;
 export default connect(mapStateToProps, null)(CountriesCards);
-

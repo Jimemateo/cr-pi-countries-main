@@ -37,6 +37,22 @@ const postActivity = async (req, res) => {
 
   try {
     if (name && difficulty && duration && season && countries) {
+      // Verifica si una actividad con el mismo nombre ya existe
+      let activity = await Activity.findOne({
+        where: { name },
+      });
+
+      if (!activity) {
+        // Si no existe, crea la nueva actividad
+        activity = await Activity.create({
+          name,
+          difficulty,
+          duration,
+          season,
+        });
+      }
+
+      // Obtén los países correspondientes y relaciona la actividad con ellos
       const countriesArr = [];
       for (const index in countries) {
         const countryCodeUpper = countries[index].toUpperCase();
@@ -52,15 +68,10 @@ const postActivity = async (req, res) => {
         countriesArr.push(country);
       }
 
-      let activity = await Activity.create({
-        name,
-        difficulty,
-        duration,
-        season,
-      });
+      await activity.addCountries(countriesArr);
 
-      await activity.addCountries(countriesArr); // para relacionar la actividad con el country en la tabla intermedia
-      const logActivity = await Activity.findOne({
+      // Obtén la actividad completa con los países relacionados
+      activity = await Activity.findOne({
         where: { id: activity.id },
         include: [
           {
@@ -81,15 +92,76 @@ const postActivity = async (req, res) => {
           },
         ],
       });
-      res.status(200).json(logActivity);
+
+      res.status(200).json(activity);
     } else {
       res.status(400).send("Missing information, can't add activity");
     }
   } catch (error) {
-    console.error(error); // Registrar el error para depuración
+    console.error(error);
     res.status(500).send("Internal Server Error");
   }
 };
+
+// const postActivity = async (req, res) => {
+//   const { name, difficulty, duration, season, countries } = req.body;
+
+//   try {
+//     if (name && difficulty && duration && season && countries) {
+      
+//       const countriesArr = [];
+//       for (const index in countries) {
+//         const countryCodeUpper = countries[index].toUpperCase();
+//         let country = await Country.findOne({
+//           where: { id: countryCodeUpper },
+//         });
+//         if (!country) {
+//           res
+//             .status(400)
+//             .send({ message: `Country ${countryCodeUpper} invalid` });
+//           return;
+//         }
+//         countriesArr.push(country);
+//       }
+
+//       let activity = await Activity.create({
+//         name,
+//         difficulty,
+//         duration,
+//         season,
+//       });
+
+//       await activity.addCountries(countriesArr); // para relacionar la actividad con el country en la tabla intermedia
+//       const logActivity = await Activity.findOne({
+//         where: { id: activity.id },
+//         include: [
+//           {
+//             model: Country,
+//             attributes: [
+//               "id",
+//               "name",
+//               "flag",
+//               "continent",
+//               "capital",
+//               "subregion",
+//               "area",
+//               "population",
+//             ],
+//             through: {
+//               attributes: [],
+//             },
+//           },
+//         ],
+//       });
+//       res.status(200).json(logActivity);
+//     } else {
+//       res.status(400).send("Missing information, can't add activity");
+//     }
+//   } catch (error) {
+//     console.error(error); // Registrar el error para depuración
+//     res.status(500).send("Internal Server Error");
+//   }
+// };
 
 
 

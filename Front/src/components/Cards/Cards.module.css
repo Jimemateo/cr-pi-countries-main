@@ -22,11 +22,15 @@
     0px 0px 20px rgba(80, 149, 239, 0.2), 0px 0px 30px rgba(66, 154, 222, 0.1);
 }
 
+.wrapper {
+  justify-content: space-between;
+}
+
 .btnIzq {
-  margin-left: 250px;
-  margin-top: -45px;
-  width: 50px;
-  height: 45px;
+  margin-left: -150px;
+  margin-top: -10.5px;
+  width: 45px;
+  height: 40px;
   background-color: var(--color-secondary);
   border: 5px;
   font-size: 30px;
@@ -58,16 +62,16 @@
   font-family: "Promp personalizada";
   font-size: 15px;
   color: white;
-  margin-left: -190px;
-  margin-top: -38px;
-
+  margin-left: 90px;
+  margin-right: 20px;
+  margin-top: -28px;
 
 }
 .btnDer {
-  margin-right: 80px;
-  margin-top: -45px;
-  width: 50px;
-  height: 45px;
+  margin-right: -290px;
+  margin-top: -29.5px;
+  width: 45px;
+  height: 40px;
   background-color: var(--color-secondary);
   border: 5px;
   font-size: 30px;
@@ -96,9 +100,8 @@
   color: white;
 }
 .btnActivity {
-  margin-left: -181px;
-  margin-right: 0px;
-  margin-top: -35px;
+  margin-left: 1020px;
+  margin-top: -73px;
   width: 150px;
   height: 35px;
   background-color: var(--color-secondary);
