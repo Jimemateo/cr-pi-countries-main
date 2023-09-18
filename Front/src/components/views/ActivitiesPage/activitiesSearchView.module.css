@@ -1,0 +1,44 @@
+:root {
+  --color-primary: #05090a;
+  --color-secondary: #1f4b56;
+  --color-therd: #62584c;
+  --color-light: #c5a58a;
+  --color-dark: #33a9bf;
+  --color-blue: rgba(28, 29, 49, 0.774);
+}
+
+.container {
+  transition: transform 0.25s ease-out;
+  background: linear-gradient(to left, #1f4b56 0%, #33a9bf 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.homeBtn {
+  position: absolute;
+  left: 0;
+  margin-right: 25px;
+  margin-left: 100px;
+  margin-top: 20px;
+  margin-bottom: -30px;
+  width: 75px;
+  height: 32px;
+  background-color: var(--color-secondary);
+  border: solid 1.5px var(--color-dark);
+  font-size: 10pt;
+  color: white;
+  padding-left: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 12px;
+  cursor: pointer;
+  justify-content: center;
+  font-family: "Promp personalizada";
+  animation: pulse 2s infinite;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}

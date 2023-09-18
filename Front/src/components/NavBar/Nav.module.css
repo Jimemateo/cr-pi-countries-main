@@ -75,3 +75,38 @@
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
   color: white;
 }
+.activitiesBtn {
+  position: absolute;
+  left: 0;
+  margin-right: 525px;
+  margin-left: 1230px;
+  margin-top: -18px;
+  margin-bottom: -30px;
+  width: 95px;
+  height: 32px;
+  background-color: var(--color-secondary);
+  border: solid 1.5px var(--color-dark);
+  font-size: 10pt;
+  color: white;
+  padding-left: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 12px;
+  cursor: pointer;
+  justify-content: center;
+  font-family: "Promp personalizada";
+  animation: pulse 2s infinite;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.activitiesBtn:hover {
+  background-color: var(
+    --color-secondary
+  ); /* Cambia el color de fondo al pasar el cursor */
+  transform: translateY(
+    -3px
+  ); /* Mueve el botón hacia arriba al pasar el cursor */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el cursor */
+  color: white;
+}
+

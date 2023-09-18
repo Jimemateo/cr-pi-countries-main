@@ -1,5 +1,4 @@
 import SearchBar from "../SearchBar/SearchBar.jsx";
-import SearchBarActivity from "../CardsActivities/ActivitySearchBar.jsx";
 import CountriesOrderFilters from "../Filter/CountriesFilter.jsx";
 import styles from "./Nav.module.css";
 import { Link } from "react-router-dom";
@@ -14,11 +13,16 @@ function Nav() {
       <div className={styles.search}>
         <SearchBar />{" "}
         {/* Renderiza el componente SearchBar para buscar países */}
-        <SearchBarActivity />{" "}
-        {/* Renderiza el componente SearchBarActivity para buscar actividades turísticas */}
         <Link to="/">
           <button className={styles.backBtn}>Go Back</button>
         </Link>
+        <li>
+        <Link to="/activities-search">
+         <button className={styles.activitiesBtn}>Activities</button>
+          </Link>
+        </li>
+        
+
       </div>
     </nav>
   );
