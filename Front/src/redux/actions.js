@@ -112,12 +112,15 @@ export function cleanActivity() {
 
 // Acción para ordenar países
 export function orderCountries(orderTarget, criteria) {
-
   return async (dispatch) => {
-    countriesOrder(orderTarget, criteria).then((orderTarget) => {
+    if (Object.values(criteria).every(value => value === undefined)) {
+      return;
+    } // con esto nos aseguramos que si todos los ordenamientos son undefined, no se ordene
+
+    countriesOrder(orderTarget, criteria).then((orderTargetOrdered) => {
       return dispatch({
         type: ORDER_COUNTRIES,
-        payload: orderTarget,
+        payload: orderTargetOrdered,
       });
     });
   };
@@ -126,10 +129,14 @@ export function orderCountries(orderTarget, criteria) {
 // Acción para filtrar países por continente o actividad turística
 export function filterCountries(orderTarget, criteria) {
   return async (dispatch) => {
-    filterContinentActivity(orderTarget, criteria).then((orderTarget) => {
+    if (Object.values(criteria).every(value => value === undefined)) {
+      return;
+    } // con esto nos aseguramos que si todos los filtros son undefined, no se filtre
+
+    filterContinentActivity(orderTarget, criteria).then((orderTargetFiltered) => {
       return dispatch({
         type: FILTER_COUNTRIES,
-        payload: orderTarget,
+        payload: orderTargetFiltered,
       });
     });
   };
@@ -137,7 +144,6 @@ export function filterCountries(orderTarget, criteria) {
 
 export function applyFilters(filters) {
   return function (dispatch) {
-    console.log(`dispatch filters ${JSON.stringify(filters)}`);
     dispatch({
       type: APPLY_FILTERS,
       payload: filters,
@@ -147,7 +153,6 @@ export function applyFilters(filters) {
 
 export function applyOrdering(order) {
   return function (dispatch) {
-    console.log(`dispatch ordering ${JSON.stringify(order)}`);
     dispatch({
       type: APPLY_ORDERING,
       payload: order,

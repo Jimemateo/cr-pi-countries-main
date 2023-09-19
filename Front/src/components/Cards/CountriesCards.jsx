@@ -3,7 +3,6 @@ import { cardsPropTypes } from "../propTypes.js";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import styles from "./Cards.module.css";
-import { Link } from "react-router-dom";
 
 function CountriesCards({ countries }) {
   // Estado local y función para actualizarlo -  estado para almacenar los países que se mostrarán en la página actual.
@@ -56,14 +55,7 @@ function CountriesCards({ countries }) {
           }
           >{`»`}</button>
         <div className={styles.searchContainer}>
-          <div>
-            {/* Enlace para crear una actividad turística */}
-            <Link to={"/activity"}>
-              <button className={styles.btnActivity}>
-                Create Tourist Activity
-              </button>
-            </Link>
-          </div>
+
         </div>
 
         <div className={styles.container}>

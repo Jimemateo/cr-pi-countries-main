@@ -133,6 +133,10 @@ También maneja errores si la creación de la actividad falla.
         <Link to={"/home"} className={styles.btnHome}>
           Home
         </Link>
+
+        <Link to={"/activities-search"} className={styles.backButton}>
+          Back to Activities
+        </Link>
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.elements}>
             {/* Campo de entrada para el nombre de la actividad */}
@@ -158,7 +162,7 @@ También maneja errores si la creación de la actividad falla.
             >
               <option value={input.season}>{"Choose Season"}</option>
               <option value="Summer">Summer</option>
-              <option value="Autum">Autumn</option>
+              <option value="Autumn">Autumn</option>
               <option value="Winter">Winter</option>
               <option value="Spring">Spring</option>
             </select>
@@ -259,3 +263,4 @@ const mapDispatchToProps = (dispatch) => {
 ActivityPost.propTypes = activityPostPropTypes;
 // Conecta el componente a Redux y exporta la versión conectada.
 export default connect(mapStateToProps, mapDispatchToProps)(ActivityPost);
+

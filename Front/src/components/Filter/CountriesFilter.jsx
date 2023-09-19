@@ -1,22 +1,15 @@
 import styles from "./CountriesFilter.module.css";
 import {
-  orderCountries,
-  filterCountries,
   applyFilters,
   applyOrdering,
 } from "../../redux/actions.js";
 import { connect } from "react-redux";
 import { countriesFilterPropTypes } from "../propTypes.js";
-import { useEffect } from "react";
 
 //filtros
 function CountriesOrderFilters({
-  countries,
-  orderCountries,
-  filterCountries,
   activities,
   applyFilters,
-  allCountries,
   filters,
   applyOrdering,
   order,
@@ -51,37 +44,6 @@ function CountriesOrderFilters({
       activity: event.target.value,
     });
   }
-
-  useEffect(() => {
-    // se filtra sobre todos los paises cuando cambia el state filters
-    filterCountries(allCountries, {
-      activities: filters.activity,
-      continent: filters.continent,
-    });
-  }, [filters]);
-
-  useEffect(() => {
-    // se ordena sobre los paises filtrados cuando cambia el state order
-    orderCountries(countries, {
-      name: order.name,
-      continent: order.continent,
-      population: order.population,
-    });
-  }, [order]);
-
-  useEffect(() => {
-    filterCountries(allCountries, {
-      activities: filters.activity,
-      continent: filters.continent,
-    });
-    orderCountries(countries, {
-      name: order.name,
-      continent: order.continent,
-      population: order.population,
-    });
-
-    return () => {};
-  }, []);
 
   const nameOrderingOptions = [
     { value: "", label: "Order by Name" },
@@ -184,12 +146,12 @@ function CountriesOrderFilters({
           {/* Mapeo de opciones de actividad turística */}
           {activities.length
             ? activities.map((activity, i) => (
-                <option
-                  key={i}
-                  value={activity.name}
-                  label={activity.name}
-                ></option>
-              ))
+              <option
+                key={i}
+                value={activity.name}
+                label={activity.name}
+              ></option>
+            ))
             : null}
         </select>
       </div>
@@ -213,10 +175,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     applyFilters: (filters) => dispatch(applyFilters(filters)),
     applyOrdering: (order) => dispatch(applyOrdering(order)),
-    orderCountries: (orderTarget, criteria) =>
-      dispatch(orderCountries(orderTarget, criteria)),
-    filterCountries: (countries, criteria) =>
-      dispatch(filterCountries(countries, criteria)),
   };
 };
 

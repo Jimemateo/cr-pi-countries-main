@@ -1,6 +1,6 @@
-import { useEffect } from "react"; // Importa useEffect de React para realizar efectos secundarios
-import { connect } from "react-redux"; 
-import { getCountries, getActivities } from "../../../redux/actions.js"; 
+import { useEffect, useState } from "react"; // Importa useEffect de React para realizar efectos secundarios
+import { connect } from "react-redux";
+import { getCountries, getActivities, filterCountries, orderCountries } from "../../../redux/actions.js";
 import CountriesCards from "../../Cards/CountriesCards.jsx";
 import styles from "./HomePage.module.css";
 import Nav from "../../NavBar/Nav.jsx";
@@ -13,16 +13,58 @@ function Home({
   getActivities,
   hasSearched,
   hasSearchedAct,
+  orderCountries,
+  filterCountries,
+  filters,
+  order,
 }) {
   // Destructura las props countries, getCountries y getActivities del objeto props
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     // Este efecto se ejecuta cuando el componente se monta
-    if (allCountries.length <= 0) { //si allCountries está vacia, llama a getCountries
-      getCountries(); // Llama a la acción getCountries para obtener la lista de países
+    const fetchCountriesData = async () => {
+      await getCountries();
+    } // se hace el getCountries en una funcion async para que devuelva una promesa y poder hacer el .then()
+
+    fetchCountriesData().then(() =>{
+      // una vez que la promesa devuelve OK, se traen las activities y se pone el false el isLoading, que va a permitir que no se apliquen los filtros ANTES que se carguen los paises
+      getActivities(); // Llama a la acción getActivities para obtener la lista de actividades
+      setIsLoading(false);
+      // una vez cargados los paises, se filtra y se ordena en el montado del componente
+      filterCountries(allCountries, {
+        activities: filters.activity,
+        continent: filters.continent,
+      });
+      orderCountries(countries, {
+        name: order.name,
+        continent: order.continent,
+        population: order.population,
+      });
+    });
+    return () => {
+      setIsLoading(true);
     }
-    getActivities(); // Llama a la acción getActivities para obtener la lista de actividades
   }, []);
+
+  useEffect(() => {
+    if (isLoading) { return } // si no se cargaron los paises no se filtra
+    // se filtra sobre todos los paises cuando cambia el state filters
+    filterCountries(allCountries, {
+      activities: filters.activity,
+      continent: filters.continent,
+    });
+  }, [filters]);
+
+  useEffect(() => {
+    if (isLoading) { return } // si no se cargaron los paises no se ordena
+    // se ordena sobre los paises filtrados cuando cambia el state order
+    orderCountries(countries, {
+      name: order.name,
+      continent: order.continent,
+      population: order.population,
+    });
+  }, [order]);
 
   return (
     <div className={styles.container}>
@@ -48,6 +90,8 @@ const mapStateToProps = (state) => {
     countries: state.countries,
     hasSearched: state.hasSearched, // Agrega el estado de hasSearched desde Redux
     hasSearchedAct: state.hasSearchedAct, // Agrega el estado a hasSearchedAct desde Redux
+    order: state.order,
+    filters: state.filters,
   };
 };
 
@@ -56,6 +100,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getCountries: () => dispatch(getCountries()), // Mapea la acción getCountries a la prop getCountries
     getActivities: () => dispatch(getActivities()), // Mapea la acción getActivities a la prop getActivities
+    orderCountries: (orderTarget, criteria) => dispatch(orderCountries(orderTarget, criteria)),
+    filterCountries: (countries, criteria) => dispatch(filterCountries(countries, criteria)),
   };
 };
 

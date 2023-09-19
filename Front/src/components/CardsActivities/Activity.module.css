@@ -24,7 +24,7 @@
   margin: 30px auto;
   margin-top: 30px;
   margin-left: 610px;
-  width: 300px;
+  width: 340px;
   height: 80%;
   border-radius: 10px;
   box-shadow: 5px 5px 3px 7px rgba(0, 0, 0, 0.25),
@@ -51,33 +51,35 @@
 }
 
 .searchActivity {
-  margin-top: 25px;
+  margin-top: 21.5px;
   margin-bottom: 13px;
   width: 250px;
   height: 32px;
-  margin-right: -135px;
+  margin-right: -145px;
   background: var(--color-secondary);
-  border: 25%;
+  border: 15%;
   font-size: 10pt;
   float: right;
-  color: var(--color-dark);
+  color: white;
   padding-left: 45px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 15px;
   font-family: "Promp personalizada";
+  box-shadow: 0px 0px 10px rgba(46, 146, 212, 0.3),
+    0px 0px 20px rgba(80, 149, 239, 0.2), 0px 0px 30px rgba(66, 154, 222, 0.1);
 }
 
 .btn {
   margin-bottom: 3px;
   margin-top: 25px;
   margin-right: 50px;
-  margin-left: 425px;
+  margin-left: 455px;
   width: 200px;
   height: 32px;
   background-color: var(--color-secondary);
   border: none;
-  font-size: 10pt;
+  font-size: 10.5pt;
   color: white;
   padding-left: 5px;
   -webkit-border-radius: 5px;
@@ -89,6 +91,8 @@
   border: solid 1.5px var(--color-dark);
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
   animation: pulse 2s infinite;
+  box-shadow: 0px 0px 10px rgba(46, 146, 212, 0.3),
+    0px 0px 20px rgba(80, 149, 239, 0.2), 0px 0px 30px rgba(66, 154, 222, 0.1);
 }
 .btn:hover {
   transform: translateY(
@@ -100,44 +104,53 @@
 
 .activityName {
   margin: 30px auto;
-  margin-top: 25px;
-  margin-left: 250px;
-  width: 65%;
-  max-height: 100px;
+  margin-top: 45px;
+  margin-left: 20px;
+  width: 95%;
+  height: 65%;
   overflow-y: auto;
-  border-radius: 10px;
-  background-color: black;
+  border-radius: 5px;
+  background: transparent;
   display: flex;
   padding: 20px;
   justify-content: space-around;
-  flex-direction:column;
+  flex-direction: column;
   flex-wrap: wrap;
   position: absolute;
 }
 
 .activityInfo {
-  background-color: black;
+  background: linear-gradient(to right, #1f4b56 0%, #33a9bf 100%);
   align-items: center;
   font-family: "Promp personalizada";
   font-size: 15px;
   text-align: center;
-  margin-left: 5px;
+  margin-left: 50px;
   color: white;
-  width: 68%; /* Haz que la tabla ocupe todo el ancho del contenedor */
-
+  width: 90%; /* Haz que la tabla ocupe todo el ancho del contenedor */
+  opacity: 0.7;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(59, 167, 239, 0.3),
+    0px 0px 20px rgba(80, 149, 239, 0.2), 0px 0px 30px rgba(66, 154, 222, 0.1);
 }
 /* Estilo para las celdas de encabezado */
-.activityInfo th {
-  padding: 10px; /* Añade espacio interno en las celdas */
-  text-align: left; /* Alinea el texto a la izquierda */
-  border: 1px solid #dddddd; /* Agrega bordes a las celdas */
+.activityInfo th,
+.activityInfo td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Estilo para las celdas de datos */
-.activityInfo td {
-  padding: 10px; /* Añade espacio interno en las celdas */
-  text-align: left; /* Alinea el texto a la izquierda */
-  border: 1px solid #dddddd; /* Agrega bordes a las celdas */
+.activityInfo th {
+  background: linear-gradient(to right, #1f4b56 0%, #33a9bf 100%);
+  font-weight: bold;
+  opacity: 1.5;
+}
+
+.activityInfo tr:hover {
+  background-color: var(--color-secondary);
 }
 
 .btnClose {
@@ -148,7 +161,6 @@
   margin-top: -10px;
   margin-right: 1400px;
   opacity: 0;
-
 }
 
 .btnHome {
@@ -160,7 +172,7 @@
   height: 40px;
   background-color: rgba(182, 153, 153, 0.5);
   border: 12px;
-  font-size: 20pt;
+  font-size: 15pt;
   color: black;
   padding-left: 5px;
   -webkit-border-radius: 5px;
@@ -179,6 +191,57 @@
   transform: translateY(
     -3px
   ); /* Mueve el botón hacia arriba al pasar el cursor */
+}
+.backButton {
+  font-family: "Promp personalizada";
+  margin-left: 1328px;
+  margin-top: -35px;
+  width: 170px;
+  height: 40px;
+  background-color: rgba(182, 153, 153, 0.5);
+  border: 12px;
+  font-size: 14pt;
+  color: black;
+  padding-left: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  box-shadow: 5px 5px 3px 7px rgba(0, 0, 0, 0.25),
+    5px 5px 3px 7px rgba(0, 0, 0, 0.22);
+  opacity: 0.8;
+}
+
+.backButton:hover {
+  transform: translateY(-3px);
+}
+
+.btnHome {
+  font-family: "Promp personalizada";
+  text-decoration: none;
+  margin-left: 5px;
+  margin-top: 0%;
+  width: 130px;
+  height: 40px;
+  background-color: rgba(182, 153, 153, 0.5);
+  border: 12px;
+  font-size: 15pt;
+  color: black;
+  text-decoration: underline;
+  padding-left: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  box-shadow: 5px 5px 3px 7px rgba(0, 0, 0, 0.25),
+    5px 5px 3px 7px rgba(0, 0, 0, 0.22);
+  opacity: 0.8;
 }
 
 .select {
@@ -333,15 +396,15 @@
   z-index: 5;
 }
 
-.resetBtnAct{
+.resetBtnAct {
   position: absolute;
   top: 1;
   left: 70;
   margin-right: 125px;
-  margin-left: -270px;
-  margin-top: -10px;
+  margin-left: -240px;
+  margin-top: 140px;
   margin-bottom: -50px;
-  width: 20px;
+  width: 110px;
   height: 20px;
   background-color: var(--color-secondary);
   border: solid 0.5px;
@@ -364,7 +427,4 @@
   text-align: center;
   margin-left: 55px;
   background-color: red;
-  
-
-
 }
