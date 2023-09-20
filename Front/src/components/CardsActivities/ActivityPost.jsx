@@ -1,17 +1,12 @@
-// Importa 'connect' de 'react-redux' para conectar el componente a Redux y acciones.
 import { connect } from "react-redux";
-// Importa las acciones específicas que se utilizarán.
 import {
   getCountries,
   postActivity,
   getActivities,
 } from "../../redux/actions.js";
-// Importa 'useState' y 'useEffect' de React para gestionar el estado y efectos secundarios.
 import { useState, useEffect } from "react";
-// Importa la función 'validate' para realizar validaciones.
 import { validate } from "../../utils/validations.js";
 import styles from "./Activity.module.css";
-// Importa 'Link' de 'react-router-dom' para crear enlaces internos en la aplicación.
 import { Link } from "react-router-dom";
 import { activityPostPropTypes } from "../propTypes.js";
 
@@ -91,6 +86,15 @@ eventos para la selección de países. Añade o quita
         countries: [...input.countries, event.target.value],
       });
     }
+  }
+
+  function handleRemoveCountry(index) {
+    const updatedCountries = [...input.countries];
+    updatedCountries.splice(index, 1);
+    setInput({
+      ...input,
+      countries: updatedCountries,
+    });
   }
   /*
 handleSubmit se llama cuando se envía el formulario. Evita la presentación si 
@@ -189,7 +193,7 @@ También maneja errores si la creación de la actividad falla.
           <div>
             {/* Campo de entrada para la duración de la actividad */}
             <input
-              className={styles.select}
+              className={styles.selectduration}
               name="duration"
               type="number"
               value={input.duration}
@@ -220,14 +224,28 @@ También maneja errores si la creación de la actividad falla.
           </select>
 
           {/* Campo de entrada para mostrar los países seleccionados */}
-          <input
+          <div className={styles.selectedCountries}>
+            {input.countries.map((country, index) => (
+              <div key={index} className={styles.selectedCountry}>
+                {country}
+                <button
+                  className={styles.removeCountry}
+                  onClick={() => handleRemoveCountry(index)}
+                >
+                  X
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {/* <input
             className={styles.inputCountry}
             name="countries"
             type="text"
             value={input.countries}
             onChange={handleInputChange}
             placeholder="Country"
-          />
+          /> */}
           {errors.countries && (
             <p className={styles.errorMessage}>{errors.countries}</p>
           )}
@@ -263,4 +281,3 @@ const mapDispatchToProps = (dispatch) => {
 ActivityPost.propTypes = activityPostPropTypes;
 // Conecta el componente a Redux y exporta la versión conectada.
 export default connect(mapStateToProps, mapDispatchToProps)(ActivityPost);
-

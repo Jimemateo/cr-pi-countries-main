@@ -128,7 +128,7 @@ export function validate(input) {
     // }
 
     if (input.name.length > 18) {
-      errors.name = "Activity name should have a maximum of 15 characters";
+      errors.name = "Activity name maximum: 15 characters";
     }
 
     const maxWords = input.name.split(" ");
